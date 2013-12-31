@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <title>Katherine &amp; Adriaan's Hitching Post</title>
+
+  <link rel="stylesheet" type="text/css" href="fullPage.js/jquery.fullPage.css" />
+	<link rel="stylesheet" type="text/css" href="style.css" />
+
+  	<!--[if IE]>
+  		<script type="text/javascript">
+  			 var console = { log: function() {} };
+  		</script>
+  	<![endif]-->
+
+  	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>	
+
+  	<script type="text/javascript" src="fullPage.js/vendors/jquery.slimscroll.min.js"></script>
+
+  	<script type="text/javascript" src="fullPage.js/jquery.fullPage.js"></script>
+
+  	<script type="text/javascript">
+
+  		$(document).ready(function() {
+  			$.fn.fullpage({
+  				menu: '#menu',
+  				anchors: ['when', 'schedule', 'rsvp', 'where', 'share', 'gifts', 'stay'],
+  				slidesColor: ['hsl(50, 82%, 78%)', 'hsl(50, 82%, 78%)', '#1BBC9B', '#7E8F7C', 'hsl(50, 82%, 78%)', 'hsl(50, 82%, 78%)', 'hsl(50, 82%, 78%)', 'hsl(50, 82%, 78%)'],
+          // navigation: true,
+          // 'navigationPosition': 'right',
+          // 'navigationColor': '#000',
+          // 'navigationTooltips': [],
+          slidesNavigation: true,
+          autoScrolling: false,
+          enabled: false
+  			});    
+
+        $(".date #one" ).data("oldpos", $(".date #one" ).offset())
+        $(".date #two" ).data("oldpos", $(".date #two" ).offset())
+        $(".date #zero").data("oldpos", $(".date #zero").offset())
+        $(".date #four").data("oldpos", $(".date #four").offset())
+        // CHEAT on `to` offset, so we can use .date #year {  display: none; }
+        $(".date #year").data("oldpos", $(".date #two").offset()) 
+
+  		});
+
+      function interpolate(pct, from, to) {
+        if (from.data("oldpos") != undefined) {
+          var old = from.data("oldpos")
+          var top2 = to.top
+          var left2 = to.left
+          var topPct = old.top + (top2-old.top)*pct
+          var leftPct = old.left + (left2-old.left)*pct
+
+          from.zIndex(100) // TODO: put in CSS
+          from.css("display", "inline") // to override .date #year's style
+          from.offset({ top: topPct, left: leftPct }) // actual movement...
+        }
+      }
+
+      // TODO: how to optimize/make smoother?
+      function aniDate() {
+        var st = $(window).scrollTop() 
+        // scale a bit so we don't hit the third slide
+        // TODO: speed up first bit, kinda like an S-curve
+        var pct = (st / $(window).height()) / .85
+        if (pct >= 1) pct = 1
+
+        var date2 = $(".date2")
+        if (pct == 1) {
+          date2.css('visibility', 'visible');
+        } else {
+          date2.css('visibility', 'hidden');
+        }
+
+        interpolate(pct, $(".date #one") , $(".date2 #one" ).offset())
+        interpolate(pct, $(".date #two") , $(".date2 #two" ).offset())
+        interpolate(pct, $(".date #zero"), $(".date2 #zero").offset())
+        interpolate(pct, $(".date #four"), $(".date2 #four").offset())
+        interpolate(pct, $(".date #year"), $(".date2 #year").offset())
+      }
+
+      //when scrolling...
+      $(window).scroll(function(e){ aniDate() } );	
+
+    </script>
+</head>
+
+<body>
+
+
+<ul id="menu">
+	<li data-menuanchor="when"> <a href="#when">the date</a> </li>
+	<li data-menuanchor="schedule"> <a href="#schedule">the day</a> </li>
+	<li data-menuanchor="rsvp"> <a href="#rsvp">RSVP</a> </li>
+	<li data-menuanchor="where"> <a href="#where">the place</a> </li>
+	<li data-menuanchor="share"> <a href="#share">share</a> </li>
+	<li data-menuanchor="gifts"> <a href="#gifts">gifts</a> </li>
+	<li data-menuanchor="stay"> <a href="#stay">stay!</a> </li>
+</ul>
+
+<div class="section" class="active" id="section0">
+	<span class="date">
+    <span id="two">2</span><span id="zero">0</span><span id="one">1</span><span id="four">4</span>
+    <span id="year">2014</span>
+  </span>
+</div>
+
+<div class="section">
+  <span class="date2">
+    <span id="zero">0</span><span id="four">4</span>/<span id="one">1</span><span id="two">2</span>/<span id="year">2014</div>
+  </span>
+</div>
+
+<div class="section" >
+  <h1>schedule</h1>
+  April 12th, 2014
+  4pm
+</div>
+
+<div class="section" >
+
+  <h1>RSVP</h1>
+
+  size of party
+  kids
+  hotel
+  song request
+
+  <a href="mailto:hi@k3n.be">questions? or just want to say hi?</a>
+</div>
+
+<div class="section" >
+  <h1>location</h1>
+  potrero neighborhood center
+
+  <!- https://mapsengine.google.com/map/u/0/edit?mid=zpym0cAvjSSo.kkwcnpXSTtsw ->
+  <iframe src="https://mapsengine.google.com/map/embed?mid=zZ0O1H1nj5vA.krAMja3c9q9M" 
+  width="400" height="400"></iframe>
+
+</div>
+
+<div class="section" >
+  <h1>share with us</h1>
+  #k3n
+</div>
+
+<div class="section">
+  <h1>gifts</h1>
+  we love gifts, but we already have all the stuff we could possibly wish for
+  we would appreciate a contribution to our travel fund,
+  as we'll be living abroad and travelling for half of 2014.
+
+  <!-- https://www.youtube.com/watch?v=4x_QkGPCL18 -->
+</div>
+
+
+<div class="section">
+  <h1>stay awhile!</h1>
+
+  <div class="slide">
+  <h2>hotel info</h2>
+  </div>
+  
+  <div class="slide">
+  <h2>where to eat</h2>
+  </div>
+
+  <div class="slide" >
+  <h2>where to drink</h2>
+  </div>
+
+  <div class="slide" >
+  <h2>where to mosey around</h2>
+  </div>
+</div>
+
+
+</body>
+</html>
+
+
+<!-- <div id="infoMenu">
+  <ul>
+    <li><a href="https://github.com/alvarotrigo/fullPage.js/archive/master.zip">Download</a></li>
+    <li>
+      <a href="#" id="showExamples">Examples</a>
+      <div id="examplesList">
+        <div class="column">
+          <h3>Navigation</h3>
+          <ul>
+            <li><a href="navigationV.html">Vertical navigation dots</a></li>
+            <li><a href="navigationH.html">Horizontal navigation dots</a></li>
+            <li><a href="normalScroll.html">Normal scrolling</a></li>
+            <li><a href="noAnchor.html">Without anchor links (same URL)</a></li>
+          </ul>
+        </div>
+        <div class="column">
+          <h3>Design</h3>
+          <ul>
+            <li><a href="backgrounds.html">Full backgrounds</a></li>
+            <li><a href="gradientBackgrounds.html">Gradient backgrounds</a></li>
+            <li><a href="scrolling.html">Scrolling inside sections and slides</a></li>
+            <li><a href="fixedHeaders.html">Adding fixed header and footer</a></li>
+          </ul>
+        </div>
+        <div class="column">
+          <h3>Callbacks</h3>
+          <ul>
+            <li><a href="apple.html">Animations on scrolling</a></li>
+          </ul>
+        </div>
+      </div>
+  
+    </li>
+    <li><a href="https://github.com/alvarotrigo/fullPage.js#fullpagejs">Documentation</a></li>
+    <li><a href="http://alvarotrigo.com/#contact-page">Contact</a></li>
+  </ul>
+
+</div> -->
