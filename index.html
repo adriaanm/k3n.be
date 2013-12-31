@@ -58,14 +58,12 @@
 
         if (pct <= 0) {
           dateFrom.css(  'visibility', 'visible')
-          // if (pct == 0) dateMoving.css('display',    'none')
-          // else dateMoving.css('display',    'block')
         } else if (pct < 1) {
           dateFrom.css(  'visibility', 'hidden')
-          dateMoving.css('display',    'block')
+          dateMoving.css('visibility', 'visible')
           dateTo.css(    'visibility', 'hidden')
         } else if (pct >= 1) {
-          dateMoving.css('display',    'none')
+          dateMoving.css('visibility', 'hidden')
           dateTo.css(    'visibility', 'visible')
         }
 

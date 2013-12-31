@@ -33,7 +33,12 @@ h1 {
 }
 
 .dateMoving {
-  display: none;
+  /* cheat to make it not take up any space (and keep .dateFrom v-centered),
+     without playing around with display: none/block, which causes jumps
+  */
+  margin-top: -1em;
+  display: block;
+  visibility: hidden;
 }
 
 
