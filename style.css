@@ -26,13 +26,13 @@ h1 {
 }
 
 
-.date, .date2 {
+.dateFrom, .dateMoving, .dateTo {
 	font-size: 10em;	
 	font-family: arial,helvetica;
 	color: #fff;
 }
 
-.date #year {
+.dateMoving {
   display: none;
 }
 

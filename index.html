@@ -25,7 +25,7 @@
   		$(document).ready(function() {
   			$.fn.fullpage({
   				menu: '#menu',
-				anchors: ['intro', 'when', 'schedule', 'rsvp', 'where', 'share', 'gifts', 'stay'],
+  				anchors: ['intro', 'when', 'schedule', 'rsvp', 'where', 'share', 'gifts', 'stay'],
   				slidesColor: ['hsl(50, 82%, 78%)', 'hsl(50, 82%, 78%)', '#1BBC9B', '#7E8F7C', 'hsl(50, 82%, 78%)', 'hsl(50, 82%, 78%)', 'hsl(50, 82%, 78%)', 'hsl(50, 82%, 78%)'],
           // navigation: true,
           // 'navigationPosition': 'right',
@@ -34,51 +34,46 @@
           slidesNavigation: true,
           autoScrolling: false,
           enabled: false
-  			});    
-
-        $(".date #one" ).data("oldpos", $(".date #one" ).offset())
-        $(".date #two" ).data("oldpos", $(".date #two" ).offset())
-        $(".date #zero").data("oldpos", $(".date #zero").offset())
-        $(".date #four").data("oldpos", $(".date #four").offset())
-        // CHEAT on `to` offset, so we can use .date #year {  display: none; }
-        $(".date #year").data("oldpos", $(".date #two").offset()) 
-
+  			});
   		});
 
-      function interpolate(pct, from, to) {
-        if (from.data("oldpos") != undefined) {
-          var old = from.data("oldpos")
-          var top2 = to.top
-          var left2 = to.left
-          var topPct = old.top + (top2-old.top)*pct
-          var leftPct = old.left + (left2-old.left)*pct
+      function interpolate(pct, from, moving, to) {
+        var topInter  = from.top  + (to.top-from.top)*pct
+        var leftInter = from.left + (to.left-from.left)*pct
 
-          from.zIndex(100) // TODO: put in CSS
-          from.css("display", "inline") // to override .date #year's style
-          from.offset({ top: topPct, left: leftPct }) // actual movement...
-        }
+        moving.zIndex(100) // TODO: can this be done once in CSS??
+        moving.offset({ top: topInter, left: leftInter }) // actual movement...
       }
 
       // TODO: how to optimize/make smoother?
       function aniDate() {
         var st = $(window).scrollTop() 
-        // scale a bit so we don't hit the third slide
+        // scale a bit so we arrive before we hit the third slide
         // TODO: speed up first bit, kinda like an S-curve
         var pct = (st / $(window).height()) / .85
-        if (pct >= 1) pct = 1
 
-        var date2 = $(".date2")
-        if (pct == 1) {
-          date2.css('visibility', 'visible');
-        } else {
-          date2.css('visibility', 'hidden');
+        var dateFrom = $(".dateFrom")
+        var dateMoving = $(".dateMoving")
+        var dateTo = $(".dateTo")
+
+        if (pct <= 0) {
+          dateFrom.css(  'visibility', 'visible')
+          // if (pct == 0) dateMoving.css('display',    'none')
+          // else dateMoving.css('display',    'block')
+        } else if (pct < 1) {
+          dateFrom.css(  'visibility', 'hidden')
+          dateMoving.css('display',    'block')
+          dateTo.css(    'visibility', 'hidden')
+        } else if (pct >= 1) {
+          dateMoving.css('display',    'none')
+          dateTo.css(    'visibility', 'visible')
         }
 
-        interpolate(pct, $(".date #one") , $(".date2 #one" ).offset())
-        interpolate(pct, $(".date #two") , $(".date2 #two" ).offset())
-        interpolate(pct, $(".date #zero"), $(".date2 #zero").offset())
-        interpolate(pct, $(".date #four"), $(".date2 #four").offset())
-        interpolate(pct, $(".date #year"), $(".date2 #year").offset())
+        interpolate(pct, $(".dateFrom #two").offset() , $(".dateMoving #two") , $(".dateTo #two" ).offset())
+        interpolate(pct, $(".dateFrom #zero").offset(), $(".dateMoving #zero"), $(".dateTo #zero").offset())
+        interpolate(pct, $(".dateFrom #one").offset() , $(".dateMoving #one") , $(".dateTo #one" ).offset())
+        interpolate(pct, $(".dateFrom #four").offset(), $(".dateMoving #four"), $(".dateTo #four").offset())
+        interpolate(pct, $(".dateFrom #two").offset(),  $(".dateMoving #year"), $(".dateTo #year").offset())
       }
 
       //when scrolling...
@@ -101,14 +96,17 @@
 </ul>
 
 <div class="section" class="active" id="section0">
-	<span class="date">
+	<span class="dateFrom">
+    <span id="two">2</span><span id="zero">0</span><span id="one">1</span><span id="four">4</span>
+  </span>
+	<span class="dateMoving">
     <span id="two">2</span><span id="zero">0</span><span id="one">1</span><span id="four">4</span>
     <span id="year">2014</span>
   </span>
 </div>
 
 <div class="section">
-  <span class="date2">
+  <span class="dateTo">
     <span id="zero">0</span><span id="four">4</span>/<span id="one">1</span><span id="two">2</span>/<span id="year">2014</div>
   </span>
 </div>
