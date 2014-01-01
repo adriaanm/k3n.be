@@ -25,8 +25,25 @@
   		$(document).ready(function() {
   			$.fn.fullpage({
   				menu: '#menu',
-  				anchors: ['intro', 'when', 'schedule', 'rsvp', 'where', 'share', 'gifts', 'stay'],
-  				slidesColor: ['hsl(50, 82%, 78%)', 'hsl(50, 82%, 78%)', '#1BBC9B', '#7E8F7C', 'hsl(50, 82%, 78%)', 'hsl(50, 82%, 78%)', 'hsl(50, 82%, 78%)', 'hsl(50, 82%, 78%)'],
+  				anchors: [
+                    'intro',
+                    'when',
+                    'schedule',
+                    'rsvp',
+                    'where',
+                    'share',
+                    'gifts',
+                    'stay'],
+  				slidesColor: [
+                    'hsl(50, 82%, 78%)',    // 'intro'
+                    'hsl(50, 82%, 78%)',    // 'when'
+                    '#1BBC9B',              // 'schedule
+                    'rgb(45, 169, 192)',    // 'rsvp'
+                    'hsl(204, 59%, 41%);',  // 'where'
+                    '#4c66a4',              // 'share'
+                    'rgb(221, 84, 20)',     // 'gifts'
+                    'hsl(50, 82%, 78%)'],   // 'stay'
+
           // navigation: true,
           // 'navigationPosition': 'right',
           // 'navigationColor': '#000',
@@ -138,25 +155,25 @@
 
 <div class="section" >
   <h1>schedule</h1>
-  April 12th, 2014
-  4pm
+  <h2>April 12th, 2014</h2>
+  <h3>4pm start of festivities</h3>
+  <h3>10:30pm after-party</h3>
 </div>
 
 <div class="section" >
 
   <h1>RSVP</h1>
-
-  size of party
-  kids
-  hotel
-  song request
+    <h2>  size of party </h2>
+    <h2>  kids </h2>
+    <h2>  hotel </h2>
+    <h2>  song request </h2>
 
   <a href="mailto:hi@k3n.be">questions? or just want to say hi?</a>
 </div>
 
 <div class="section" >
   <h1>location</h1>
-  potrero neighborhood center
+  <h2>potrero neighborhood center</h2>
 
   <!- https://mapsengine.google.com/map/u/0/edit?mid=zpym0cAvjSSo.kkwcnpXSTtsw ->
   <iframe src="https://mapsengine.google.com/map/embed?mid=zZ0O1H1nj5vA.krAMja3c9q9M" 
@@ -166,7 +183,7 @@
 
 <div class="section" >
   <h1>share with us</h1>
-  #k3n
+  <h2>#k3n</h2>
 </div>
 
 <div class="section">
