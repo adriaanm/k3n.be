@@ -76,13 +76,16 @@
 
         if (pct <= 0) {
           dateFrom.css(  'visibility', 'visible')
+          $("#menu").css('visibility', 'hidden')
         } else if (pct < 1) {
           dateFrom.css(  'visibility', 'hidden')
           dateMoving.css('visibility', 'visible')
           dateTo.css(    'visibility', 'hidden')
+          $("#menu").css('visibility', 'hidden')
         } else if (pct >= 1) {
           dateMoving.css('visibility', 'hidden')
           dateTo.css(    'visibility', 'visible')
+          $("#menu").css('visibility', 'visible')
         }
 
         interpolate(pct, $(".dateFrom #two").offset() , $(".dateMoving #two") , $(".dateTo #two" ).offset())

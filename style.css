@@ -75,6 +75,7 @@ h1 {
 	color: #fff;
 }
 #menu{
+  // TODO: fix spacing bug -- slides are off by menu height;
 	position:fixed;
 	right: 20px;
 	bottom: 20px;
@@ -82,6 +83,7 @@ h1 {
 	z-index: 70;
 	min-width: 50%;
 	padding: 0;
+  visibility: hidden;
 }
 
 
