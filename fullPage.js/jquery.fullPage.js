@@ -61,33 +61,22 @@
 					'overflow' : 'hidden',
 					'height' : '100%'
 				});
-				
-				if(element.length){
-					//moving the container up
-					if(options.css3){
-						var translate3d = 'translate3d(0px, -' + element.position().top + 'px, 0px)';
-						transformContainer(translate3d, false);
-					}else{
-						//deleting the possible negative top
-						$('#superContainer').css('top', '-'  + element.position().top + 'px');
-					}
-				}
-					
-			}else{
+                        } else {
 				$('html, body').css({
 					'overflow' : 'auto',
 					'height' : 'auto'
 				});
-				
-				if(options.css3){
-					//moving the container up
-					var translate3d = 'translate3d(0px, 0px, 0px)';
-					transformContainer(translate3d, false);
-				}else{
-					//deleting the possible negative top
-					$('#superContainer').css('top', '0px');
-				}
-				
+      }
+
+                        if(options.css3){
+                                var translate3d = 'translate3d(0px, -' + element.position().top + 'px, 0px)';
+                                transformContainer(translate3d, false);
+                        }else{
+                                //deleting the possible negative top
+                                $('#superContainer').css('top', '-'  + element.position().top + 'px');
+                        }
+
+      if (!options.autoScrolling) {
 				//scrolling the page to the section with no animation
 				$('html, body').scrollTop(element.position().top);
 			}
