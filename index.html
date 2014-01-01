@@ -47,10 +47,11 @@
 
       // TODO: how to optimize/make smoother?
       function aniDate() {
-        var st = $(window).scrollTop() 
+        var top = window.pageYOffset
+
         // scale a bit so we arrive before we hit the third slide
         // TODO: speed up first bit, kinda like an S-curve
-        var pct = (st / $(window).height()) / .85
+        var pct = (top / $(window).height()) / .85
 
         var dateFrom = $(".dateFrom")
         var dateMoving = $(".dateMoving")
@@ -74,8 +75,34 @@
         interpolate(pct, $(".dateFrom #two").offset(),  $(".dateMoving #year"), $(".dateTo #year").offset())
       }
 
-      //when scrolling...
-      $(window).scroll(function(e){ aniDate() } );	
+      // based on https://gist.github.com/Warry/4254579
+      // Detect request animation frame
+      var scroll = window.requestAnimationFrame ||
+                   window.webkitRequestAnimationFrame ||
+                   window.mozRequestAnimationFrame ||
+                   window.msRequestAnimationFrame ||
+                   window.oRequestAnimationFrame ||
+                   // IE Fallback, you can even fallback to onscroll
+                   function(callback){ window.setTimeout(callback, 1000/60) }
+
+      var lastPosition = -1
+      var initialized = false
+
+      function loop(){
+        // Avoid calculations if not needed
+        if (!initialized) {
+          initialized = $(".dateFrom #two").offset() != undefined
+        } else if (lastPosition == window.pageYOffset) {
+          // dumdidum
+        } else {
+          lastPosition = window.pageYOffset
+
+          aniDate()
+        }
+
+        scroll( loop )
+      }
+      loop();
 
     </script>
 </head>
