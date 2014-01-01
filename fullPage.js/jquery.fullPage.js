@@ -46,13 +46,14 @@
 		
 		
 		//Defines the delay to take place before being able to scroll to the next section
-		//BE CAREFUL! Not recommened to change it under 400 for a good behavior in laptops and 
+                //BE CAREFUL! When auto-scrolling, not recommened to change it under 400 for a good behavior in laptops and
 		//Apple devices (laptops, mouses...)
-		var scrollDelay = 700;
+                var scrollDelay = 100;
 		
 		$.fn.fullpage.setAutoScrolling = function(value){
 			options.autoScrolling = value;
-			
+                        if (value) scrollDelay = 700
+
 			var element = $('.section.active');
 				
 			if(options.autoScrolling){
