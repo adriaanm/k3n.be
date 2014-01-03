@@ -15,14 +15,20 @@ h1 {
 /* Centered texts in each section 
 * --------------------------------------- */
 .section {
-	text-align:center;
+        text-align: center;
   background-color: hsl(50, 82%, 78%);
 }
 
 
 .dateFrom, .dateMoving, .dateTo {
 	font-size: 10em;	
-	font-family: arial,helvetica;
+/*  font-family: 'Noto Serif', serif;
+  font-weight: 400;
+*/
+/*  font-family: 'Special Elite', cursive;*/
+  font-family: 'Merriweather', serif;
+
+/*  font-family: 'Josefin Sans', sans-serif;*/
 	color: #fff;
 }
 

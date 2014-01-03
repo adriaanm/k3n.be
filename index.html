@@ -4,6 +4,9 @@
   <meta http-equiv="Content-type" content="text/html; charset=utf-8">
   <title>Katherine &amp; Adriaan's Hitching Post</title>
 
+  <link href='http://fonts.googleapis.com/css?family=Josefin+Sans|Josefin+Slab|Droid+Serif|Merriweather:400,900' rel='stylesheet' type='text/css'>
+
+
   <link rel="stylesheet" type="text/css" href="fullPage.js/jquery.fullPage.css" />
 	<link rel="stylesheet" type="text/css" href="style.css" />
 
@@ -76,23 +79,25 @@
 
         if (pct <= 0) {
           dateFrom.css(  'visibility', 'visible')
-          $("#menu").css('visibility', 'hidden')
         } else if (pct < 1) {
           dateFrom.css(  'visibility', 'hidden')
           dateMoving.css('visibility', 'visible')
           dateTo.css(    'visibility', 'hidden')
-          $("#menu").css('visibility', 'hidden')
         } else if (pct >= 1) {
           dateMoving.css('visibility', 'hidden')
           dateTo.css(    'visibility', 'visible')
-          $("#menu").css('visibility', 'visible')
         }
 
-        interpolate(pct, $(".dateFrom #two").offset() , $(".dateMoving #two") , $(".dateTo #two" ).offset())
-        interpolate(pct, $(".dateFrom #zero").offset(), $(".dateMoving #zero"), $(".dateTo #zero").offset())
-        interpolate(pct, $(".dateFrom #one").offset() , $(".dateMoving #one") , $(".dateTo #one" ).offset())
-        interpolate(pct, $(".dateFrom #four").offset(), $(".dateMoving #four"), $(".dateTo #four").offset())
-        interpolate(pct, $(".dateFrom #two").offset(),  $(".dateMoving #year"), $(".dateTo #year").offset())
+        if (pct < 1.2) $("#menu").css('visibility', 'hidden')
+        else $("#menu").css('visibility', 'visible')
+
+        if (pct <= 1) {
+          interpolate(pct, $(".dateFrom #two").offset() , $(".dateMoving #two") , $(".dateTo #two" ).offset())
+          interpolate(pct, $(".dateFrom #zero").offset(), $(".dateMoving #zero"), $(".dateTo #zero").offset())
+          interpolate(pct, $(".dateFrom #one").offset() , $(".dateMoving #one") , $(".dateTo #one" ).offset())
+          interpolate(pct, $(".dateFrom #four").offset(), $(".dateMoving #four"), $(".dateTo #four").offset())
+          interpolate(pct, $(".dateFrom #two").offset(),  $(".dateMoving #year"), $(".dateTo #year").offset())
+        }
       }
 
       // based on https://gist.github.com/Warry/4254579
@@ -140,7 +145,7 @@
 	<li data-menuanchor="stay"> <a href="#stay">stay!</a> </li>
 </ul>
 
-<div class="section" class="active" id="section0">
+<div class="section">
 	<span class="dateFrom">
     <span id="two">2</span><span id="zero">0</span><span id="one">1</span><span id="four">4</span>
   </span>
@@ -159,12 +164,13 @@
 <div class="section" >
   <h1>schedule</h1>
   <h2>April 12th, 2014</h2>
-  <h3>4pm start of festivities</h3>
-  <h3>10:30pm after-party</h3>
+  <h3>4:30pm start of festivities</h3>
+  <h3>5-5:30pm ceremony</h3>
+  <h3>7pm dinner</h3>
+  <h3>10:30pm after-party...</h3>
 </div>
 
 <div class="section" >
-
   <h1>RSVP</h1>
     <h2>  size of party </h2>
     <h2>  kids </h2>
