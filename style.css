@@ -3,9 +3,69 @@
 * --------------------------------------- */
 h1 {
 	font-size: 5em;	
-	font-family: arial,helvetica;
+	font-family: 'Josefin Sans',arial,helvetica;
 	color: #fff;
 	margin:0;
+}
+
+h2 {
+	font-size: 3em;	
+	font-family: 'Josefin Sans',arial,helvetica;
+	color: #000;
+	margin: .5em;
+}
+
+h3 {
+	font-size: 1.5em;	
+	font-family: 'Josefin Sans',arial,helvetica;
+	color: #000;
+	margin: .5em;
+}
+
+a {
+  color: #eee;
+  text-decoration: none;
+}
+
+a:hover{
+  border-bottom: 1px solid;
+}
+
+#schedule.section {
+  background-color: #1BBC9B;
+}
+
+#schedule.section h1,
+#schedule.section h2,
+#schedule.section h3, {
+  margin: 1em;
+}
+
+#us.section {
+/*  background-color: hsl(204, 59%, 41%);*/
+}
+
+#party.section {
+  background-color: #1BBC9B;
+}
+
+#where.section {
+  background-color: hsl(204, 59%, 41%);
+}
+
+#rsvp.section {
+  background-color: rgb(45, 169, 192);
+}
+
+#share.section {
+  background-color: #4c66a4;
+}
+
+#gifts.section {
+  background-color: rgb(221, 84, 20);
+}
+
+#stay.section {
 }
 
 .intro p {
@@ -22,13 +82,8 @@ h1 {
 
 .dateFrom, .dateMoving, .dateTo {
 	font-size: 10em;	
-/*  font-family: 'Noto Serif', serif;
-  font-weight: 400;
-*/
-/*  font-family: 'Special Elite', cursive;*/
-  font-family: 'Merriweather', serif;
-
-/*  font-family: 'Josefin Sans', sans-serif;*/
+  font-family: 'Josefin Slab', serif;
+  font-weight: 700;
 	color: #fff;
 }
 
@@ -41,50 +96,56 @@ h1 {
   visibility: hidden;
 }
 
+#menu {
+  font-family: 'Merriweather', serif;
 
-#menu li {
-	display:inline-block;
-	margin: 10px;
-	color: #000;
-	background:#fff;
-	background: rgba(255,255,255, 0.5);
-	-webkit-border-radius: 10px; 
-            border-radius: 10px; 
-}
-#menu li.active{
-	background:#666;
-	background: rgba(0,0,0, 0.5);
-	color: #fff;
-}
-#menu li a{
-	text-decoration:none;
-	color: #000;
-}
-#menu li.active a:hover{
-	color: #000;
-}
-#menu li:hover{
-	background: rgba(255,255,255, 0.8);
-}
-#menu li a,
-#menu li.active a{
-	padding: 9px 18px;
-	display:block;
-}
-#menu li.active a{
-	color: #fff;
-}
-#menu{
   // TODO: fix spacing bug -- slides are off by menu height;
 	position:fixed;
 	right: 20px;
-	bottom: 20px;
-	height: 40px;
+  bottom: 20px;
 	z-index: 70;
-	min-width: 50%;
-	padding: 0;
   visibility: hidden;
+	margin:  0px;
+  padding: 0px;
 }
+
+#menu li {
+	display: inline-block;
+  padding: 5px 8px;
+
+  background: white;
+  opacity: .5;
+  transition: opacity .5s ease-out;
+  -moz-transition: opacity .5s ease-out;
+  -webkit-transition: opacity .5s ease-out;
+  -o-transition: opacity .5s ease-out;
+
+	-webkit-border-radius: 12px; 
+            border-radius: 12px; 
+}
+#menu li:hover {
+  opacity: 1;
+  transition: opacity .5s ease-out;
+  -moz-transition: opacity .5s ease-out;
+  -webkit-transition: opacity .5s ease-out;
+  -o-transition: opacity .5s ease-out;
+}
+
+#menu li a{
+	text-decoration: none;
+  color: black;
+  opacity: .5;
+  transition: opacity .5s ease-out;
+  -moz-transition: opacity .5s ease-out;
+  -webkit-transition: opacity .5s ease-out;
+  -o-transition: opacity .5s ease-out;
+}
+
+#menu li a:hover{
+	text-decoration: none;
+  opacity: 1;
+}
+
 
 
 

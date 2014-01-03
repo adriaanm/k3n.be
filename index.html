@@ -4,7 +4,7 @@
   <meta http-equiv="Content-type" content="text/html; charset=utf-8">
   <title>Katherine &amp; Adriaan's Hitching Post</title>
 
-  <link href='http://fonts.googleapis.com/css?family=Josefin+Sans|Josefin+Slab|Droid+Serif|Merriweather:400,900' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Josefin+Sans|Josefin+Slab:400,700|Merriweather:400' rel='stylesheet' type='text/css'>
 
 
   <link rel="stylesheet" type="text/css" href="fullPage.js/jquery.fullPage.css" />
@@ -28,32 +28,8 @@
   		$(document).ready(function() {
   			$.fn.fullpage({
   				menu: '#menu',
-  				anchors: [
-                    'intro',
-                    'when',
-                    'schedule',
-                    'rsvp',
-                    'where',
-                    'share',
-                    'gifts',
-                    'stay'],
-  				slidesColor: [
-                    'hsl(50, 82%, 78%)',    // 'intro'
-                    'hsl(50, 82%, 78%)',    // 'when'
-                    '#1BBC9B',              // 'schedule
-                    'rgb(45, 169, 192)',    // 'rsvp'
-                    'hsl(204, 59%, 41%);',  // 'where'
-                    '#4c66a4',              // 'share'
-                    'rgb(221, 84, 20)',     // 'gifts'
-                    'hsl(50, 82%, 78%)'],   // 'stay'
-
-          // navigation: true,
-          // 'navigationPosition': 'right',
-          // 'navigationColor': '#000',
-          // 'navigationTooltips': [],
           slidesNavigation: true,
-          autoScrolling: false,
-          enabled: false
+          autoScrolling: false
   			});
   		});
 
@@ -136,10 +112,11 @@
 
 
 <ul id="menu">
-	<li data-menuanchor="when"> <a href="#when">the date</a> </li>
 	<li data-menuanchor="schedule"> <a href="#schedule">the day</a> </li>
-	<li data-menuanchor="rsvp"> <a href="#rsvp">RSVP</a> </li>
 	<li data-menuanchor="where"> <a href="#where">the place</a> </li>
+	<li data-menuanchor="us"> <a href="#us">the story</a> </li>
+	<li data-menuanchor="party"> <a href="#where">the party</a> </li>
+	<li data-menuanchor="rsvp"> <a href="#rsvp">RSVP</a> </li>
 	<li data-menuanchor="share"> <a href="#share">share</a> </li>
 	<li data-menuanchor="gifts"> <a href="#gifts">gifts</a> </li>
 	<li data-menuanchor="stay"> <a href="#stay">stay!</a> </li>
@@ -161,7 +138,7 @@
   </span>
 </div>
 
-<div class="section" >
+<div class="section" anchor="schedule" id="schedule">
   <h1>schedule</h1>
   <h2>April 12th, 2014</h2>
   <h3>4:30pm start of festivities</h3>
@@ -170,7 +147,15 @@
   <h3>10:30pm after-party...</h3>
 </div>
 
-<div class="section" >
+<div class="section" anchor="us" id="us">
+  <h1>Katherine & Adriaan</h1>
+</div>
+
+<div class="section" anchor="party" id="party">
+  <h1>our families</h1>
+</div>
+
+<div class="section" anchor="rsvp" id="rsvp">
   <h1>RSVP</h1>
     <h2>  size of party </h2>
     <h2>  kids </h2>
@@ -180,9 +165,10 @@
   <a href="mailto:hi@k3n.be">questions? or just want to say hi?</a>
 </div>
 
-<div class="section" >
+<div class="section" anchor="where" id="where">
   <h1>location</h1>
-  <h2>potrero neighborhood center</h2>
+  <h2>Potrero Hill Neighborhood House</h2>
+  <h3><a href="https://maps.google.com/maps?q=Potrero+Hill+Neighborhood+House,+953+De+Haro+St+San+Francisco,+CA+94107">953 De Haro St, San Francisco, CA 94107</a></h2>
 
   <!- https://mapsengine.google.com/map/u/0/edit?mid=zpym0cAvjSSo.kkwcnpXSTtsw ->
   <iframe src="https://mapsengine.google.com/map/embed?mid=zZ0O1H1nj5vA.krAMja3c9q9M" 
@@ -190,12 +176,12 @@
 
 </div>
 
-<div class="section" >
+<div class="section" anchor="share" id="share">
   <h1>share with us</h1>
   <h2>#k3n</h2>
 </div>
 
-<div class="section">
+<div class="section" anchor="gifts" id="gifts">
   <h1>gifts</h1>
   we love gifts, but we already have all the stuff we could possibly wish for
   we would appreciate a contribution to our travel fund,
@@ -205,7 +191,7 @@
 </div>
 
 
-<div class="section">
+<div class="section" anchor="stay" id="stay">
   <h1>stay awhile!</h1>
 
   <div class="slide">
