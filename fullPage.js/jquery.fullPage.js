@@ -258,21 +258,21 @@
 					currentSection.addClass('active');
 				
 					var anchorLink  = currentSection.attr('anchor');
-					$.isFunction( options.onLeave ) && options.onLeave.call( this, currentSection.index('.section'), yMovement);
 
-					$.isFunction( options.afterLoad ) && options.afterLoad.call( this, anchorLink, (currentSection.index('.section') + 1));
-					
-					activateMenuElement(anchorLink);	
-					activateNavDots(anchorLink, 0);
-					
-				
 					if(anchorLink != undefined && !isMoving){
 						//needed to enter in hashChange event when using the menu with anchor links
 						lastScrolledDestiny = anchorLink;
 			
 						location.hash = anchorLink;
 					}
+
+          // $.isFunction( options.onLeave ) && options.onLeave.call( this, currentSection.index('.section'), yMovement);
+          // 
+          // $.isFunction( options.afterLoad ) && options.afterLoad.call( this, anchorLink, (currentSection.index('.section') + 1));
 					
+					activateMenuElement(anchorLink);	
+					activateNavDots(anchorLink, 0);
+
 					//small timeout in order to avoid entering in hashChange event when scrolling is not finished yet
 					clearTimeout(scrollId);
 					scrollId = setTimeout(function(){					
@@ -482,8 +482,14 @@
 		};
 		
 		function scrollPage(element, callback) {
+			element.addClass('active').siblings().removeClass('active');
+      $('html, body').animate({scrollTop: element.offset().top}, options.scrollingSpeed, options.easing);
+    }
+    
+    // TODO: fix scroll misalignment -- the above works, though
+		function scrollPageBroken(element, callback) {
 			var scrollOptions = {}, scrolledElement;
-			var dest = element.position();
+			var dest = element.offset();
 			var dtop = dest !== null ? dest.top : null;
 			var yMovement = getYmovement(element);
 			var anchorLink  = element.attr('anchor');
@@ -536,9 +542,7 @@
 			}else{
 				$.isFunction( options.onLeave ) && options.onLeave.call( this, leavingSection, yMovement);
 				
-				$(scrolledElement).animate(
-					scrollOptions 
-				, options.scrollingSpeed, options.easing, function() {
+        $(scrolledElement).animate(scrollOptions, options.scrollingSpeed, options.easing, function() {
 					//callback
 					$.isFunction( options.afterLoad ) && options.afterLoad.call( this, anchorLink, (sectionIndex + 1));
 					
@@ -913,7 +917,7 @@
 		function activateMenuElement(name){
 			if(options.menu){
 				$(options.menu).find('.active').removeClass('active');
-				$(options.menu).find('[data-menuanchor="'+name+'"]').addClass('active');
+				$(options.menu).find('[menuanchor="'+name+'"]').addClass('active');
 			}
 		}
 		
