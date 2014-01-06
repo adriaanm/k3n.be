@@ -13,7 +13,6 @@
 			"verticalCentered" : true,
 			'resize' : true,
 			'slidesColor' : [],
-			'anchors':[],
 			'scrollingSpeed': 700,
 			'easing': 'easeInQuart',
 			'menu': false,
@@ -131,17 +130,10 @@
 			if (typeof options.slidesColor[index] !==  'undefined') {
 				$(this).css('background-color', options.slidesColor[index]);
 			}
-
-			if (typeof options.anchors[index] !== 'undefined') {
-				$(this).attr('data-anchor', options.anchors[index]);
-			}
 			
 
 			if (options.navigation) {
-				var link = '';
-				if(options.anchors.length){
-					link = options.anchors[index];
-				}
+				var link = $(this).attr('anchor') || '';
 				var tooltip = options.navigationTooltips[index];
 				if(typeof tooltip === 'undefined'){
 					tooltip = '';
@@ -265,7 +257,7 @@
 					$('.section.active').removeClass('active');
 					currentSection.addClass('active');
 				
-					var anchorLink  = currentSection.data('anchor');
+					var anchorLink  = currentSection.attr('anchor');
 					$.isFunction( options.onLeave ) && options.onLeave.call( this, currentSection.index('.section'), yMovement);
 
 					$.isFunction( options.afterLoad ) && options.afterLoad.call( this, anchorLink, (currentSection.index('.section') + 1));
@@ -274,7 +266,7 @@
 					activateNavDots(anchorLink, 0);
 					
 				
-					if(options.anchors.length && !isMoving){
+					if(anchorLink != undefined && !isMoving){
 						//needed to enter in hashChange event when using the menu with anchor links
 						lastScrolledDestiny = anchorLink;
 			
@@ -477,7 +469,7 @@
 			var destiny = '';
 			
 			if(isNaN(section)){
-				destiny = $('[data-anchor="'+section+'"]');
+				destiny = $('[anchor="'+section+'"]');
 			}else{
 				destiny = $('.section').eq( (section -1) );
 			}
@@ -494,12 +486,12 @@
 			var dest = element.position();
 			var dtop = dest !== null ? dest.top : null;
 			var yMovement = getYmovement(element);
-			var anchorLink  = element.data('anchor');
+			var anchorLink  = element.attr('anchor');
 			var sectionIndex = element.index('.section');
 			var activeSlide = element.find('.slide.active');
 
 			if(activeSlide.length){
-				var slideAnchorLink = activeSlide.data('anchor');
+				var slideAnchorLink = activeSlide.attr('anchor');
 				var slideIndex = activeSlide.index();
 			}
 
@@ -528,8 +520,6 @@
 			}		
 						
 			if(options.css3 && options.autoScrolling){
-
-				
 				$.isFunction( options.onLeave ) && options.onLeave.call( this, leavingSection, yMovement);
 
 				var translate3d = 'translate3d(0px, -' + dtop + 'px, 0px)';
@@ -732,9 +722,9 @@
 			var slideIndex = destiny.index();
 			var section = slides.closest('.section');
 			var sectionIndex = section.index('.section');
-			var anchorLink = section.data('anchor');
+			var anchorLink = section.attr('anchor');
 			var slidesNav = section.find('.fullPage-slidesNav');
-			var slideAnchor = destiny.data('anchor');
+			var slideAnchor = destiny.attr('anchor');
 	
 			if(options.onSlideLeave){
 				var prevSlideIndex = section.find('.slide.active').index();
@@ -1042,7 +1032,7 @@
 		function scrollPageAndSlide(destiny, slide){
 
 			if(isNaN(destiny)){
-				var section = $('[data-anchor="'+destiny+'"]');
+				var section = $('[anchor="'+destiny+'"]');
 			}else{
 				var section = $('.section').eq( (destiny -1) );
 			}
@@ -1067,7 +1057,7 @@
 		function scrollSlider(section, slide){
 			if(typeof slide != 'undefined'){
 				var slides = section.find('.slides');
-				var destiny =  slides.find('[data-anchor="'+slide+'"]');
+				var destiny =  slides.find('[anchor="'+slide+'"]');
 				if(!destiny.length){
 					destiny = slides.find('.slide').eq(slide);
 				}
@@ -1121,7 +1111,6 @@
 			}else if(typeof slideIndex !== 'undefined'){
 				location.hash = anchorLink;
 			}
-
 			//section without slides
 			else{
 				location.hash = anchorLink;
