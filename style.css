@@ -42,11 +42,11 @@ a:hover{
 }
 
 #us.section {
-/*  background-color: hsl(204, 59%, 41%);*/
+  background-color: #1BBC9B;
 }
 
 #party.section {
-  background-color: #1BBC9B;
+/*  background-color: hsl(204, 59%, 41%);*/
 }
 
 #where.section {
@@ -54,7 +54,6 @@ a:hover{
 }
 
 #rsvp.section {
-  background-color: rgb(45, 169, 192);
 }
 
 #share.section {
@@ -124,11 +123,14 @@ a:hover{
             border-radius: 12px; 
 }
 #menu li:hover {
-  opacity: 1;
+  opacity: .8;
   transition: opacity .5s ease-out;
   -moz-transition: opacity .5s ease-out;
   -webkit-transition: opacity .5s ease-out;
   -o-transition: opacity .5s ease-out;
+}
+#menu .active {
+  opacity: 1;
 }
 
 #menu li a{

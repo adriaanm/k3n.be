@@ -6,127 +6,46 @@
 
   <link href='http://fonts.googleapis.com/css?family=Josefin+Sans|Josefin+Slab:400,700|Merriweather:400' rel='stylesheet' type='text/css'>
 
-
   <link rel="stylesheet" type="text/css" href="fullPage.js/jquery.fullPage.css" />
-	<link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
 
-  	<!--[if IE]>
-  		<script type="text/javascript">
-  			 var console = { log: function() {} };
-  		</script>
-  	<![endif]-->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>	
 
-  	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-  	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>	
+  <script type="text/javascript" src="fullPage.js/vendors/jquery.slimscroll.min.js"></script>
+  <script type="text/javascript" src="fullPage.js/jquery.fullPage.js"></script>
 
-  	<script type="text/javascript" src="fullPage.js/vendors/jquery.slimscroll.min.js"></script>
+  <script type="text/javascript" src="animate.js"></script>
 
-  	<script type="text/javascript" src="fullPage.js/jquery.fullPage.js"></script>
-
-  	<script type="text/javascript">
-
-  		$(document).ready(function() {
-  			$.fn.fullpage({
-  				menu: '#menu',
-          slidesNavigation: true,
-          autoScrolling: false
-  			});
-  		});
-
-      function interpolate(pct, from, moving, to) {
-        var topInter  = from.top  + (to.top-from.top)*pct
-        var leftInter = from.left + (to.left-from.left)*pct
-
-        moving.zIndex(100) // TODO: can this be done once in CSS??
-        moving.offset({ top: topInter, left: leftInter }) // actual movement...
-      }
-
-      // TODO: how to optimize/make smoother?
-      function aniDate() {
-        var top = window.pageYOffset
-
-        // scale a bit so we arrive before we hit the third slide
-        // TODO: speed up first bit, kinda like an S-curve
-        var pct = (top / $(window).height()) / .85
-
-        var dateFrom = $(".dateFrom")
-        var dateMoving = $(".dateMoving")
-        var dateTo = $(".dateTo")
-
-        if (pct <= 0) {
-          dateFrom.css(  'visibility', 'visible')
-        } else if (pct < 1) {
-          dateFrom.css(  'visibility', 'hidden')
-          dateMoving.css('visibility', 'visible')
-          dateTo.css(    'visibility', 'hidden')
-        } else if (pct >= 1) {
-          dateMoving.css('visibility', 'hidden')
-          dateTo.css(    'visibility', 'visible')
-        }
-
-        if (pct < 1.2) $("#menu").css('visibility', 'hidden')
-        else $("#menu").css('visibility', 'visible')
-
-        if (pct <= 1) {
-          interpolate(pct, $(".dateFrom #two").offset() , $(".dateMoving #two") , $(".dateTo #two" ).offset())
-          interpolate(pct, $(".dateFrom #zero").offset(), $(".dateMoving #zero"), $(".dateTo #zero").offset())
-          interpolate(pct, $(".dateFrom #one").offset() , $(".dateMoving #one") , $(".dateTo #one" ).offset())
-          interpolate(pct, $(".dateFrom #four").offset(), $(".dateMoving #four"), $(".dateTo #four").offset())
-          interpolate(pct, $(".dateFrom #two").offset(),  $(".dateMoving #year"), $(".dateTo #year").offset())
-        }
-      }
-
-      // based on https://gist.github.com/Warry/4254579
-      // Detect request animation frame
-      var scroll = window.requestAnimationFrame ||
-                   window.webkitRequestAnimationFrame ||
-                   window.mozRequestAnimationFrame ||
-                   window.msRequestAnimationFrame ||
-                   window.oRequestAnimationFrame ||
-                   // IE Fallback, you can even fallback to onscroll
-                   function(callback){ window.setTimeout(callback, 1000/60) }
-
-      var lastPosition = -1
-      var initialized = false
-
-      function loop(){
-        // Avoid calculations if not needed
-        if (!initialized) {
-          initialized = $(".dateFrom #two").offset() != undefined
-        } else if (lastPosition == window.pageYOffset) {
-          // dumdidum
-        } else {
-          lastPosition = window.pageYOffset
-
-          aniDate()
-        }
-
-        scroll( loop )
-      }
-      loop();
-
-    </script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $.fn.fullpage({
+        menu: '#menu',
+        slidesNavigation: true,
+        autoScrolling: false
+      });
+    });
+  </script>
 </head>
 
 <body>
 
-
 <ul id="menu">
-	<li data-menuanchor="schedule"> <a href="#schedule">the day</a> </li>
-	<li data-menuanchor="where"> <a href="#where">the place</a> </li>
-	<li data-menuanchor="us"> <a href="#us">the story</a> </li>
-	<li data-menuanchor="party"> <a href="#where">the party</a> </li>
-	<li data-menuanchor="rsvp"> <a href="#rsvp">RSVP</a> </li>
-	<li data-menuanchor="share"> <a href="#share">share</a> </li>
-	<li data-menuanchor="gifts"> <a href="#gifts">gifts</a> </li>
-	<li data-menuanchor="stay"> <a href="#stay">stay!</a> </li>
+  <li menuanchor="us"> <a href="#us">the story</a> </li>
+  <li menuanchor="party"> <a href="#party">the party</a> </li>
+  <li menuanchor="schedule"> <a href="#schedule">the day</a> </li>
+  <li menuanchor="where"> <a href="#where">the place</a> </li>
+  <li menuanchor="rsvp"> <a href="#rsvp">RSVP</a> </li>
+  <li menuanchor="share"> <a href="#share">share</a> </li>
+  <li menuanchor="gifts"> <a href="#gifts">gifts</a> </li>
+  <li menuanchor="stay"> <a href="#stay">stay!</a> </li>
 </ul>
 
 <div class="section">
-	<span class="dateFrom">
+  <span class="dateFrom">
     <span id="two">2</span><span id="zero">0</span><span id="one">1</span><span id="four">4</span>
   </span>
-	<span class="dateMoving">
+  <span class="dateMoving">
     <span id="two">2</span><span id="zero">0</span><span id="one">1</span><span id="four">4</span>
     <span id="year">2014</span>
   </span>
@@ -138,6 +57,14 @@
   </span>
 </div>
 
+<div class="section" anchor="us" id="us">
+  <h1>Katherine & Adriaan</h1>
+</div>
+
+<div class="section" anchor="party" id="party">
+  <h1>our families</h1>
+</div>
+
 <div class="section" anchor="schedule" id="schedule">
   <h1>schedule</h1>
   <h2>April 12th, 2014</h2>
@@ -147,33 +74,20 @@
   <h3>10:30pm after-party...</h3>
 </div>
 
-<div class="section" anchor="us" id="us">
-  <h1>Katherine & Adriaan</h1>
-</div>
-
-<div class="section" anchor="party" id="party">
-  <h1>our families</h1>
-</div>
-
-<div class="section" anchor="rsvp" id="rsvp">
-  <h1>RSVP</h1>
-    <h2>  size of party </h2>
-    <h2>  kids </h2>
-    <h2>  hotel </h2>
-    <h2>  song request </h2>
-
-  <a href="mailto:hi@k3n.be">questions? or just want to say hi?</a>
-</div>
-
 <div class="section" anchor="where" id="where">
   <h1>location</h1>
   <h2>Potrero Hill Neighborhood House</h2>
   <h3><a href="https://maps.google.com/maps?q=Potrero+Hill+Neighborhood+House,+953+De+Haro+St+San+Francisco,+CA+94107">953 De Haro St, San Francisco, CA 94107</a></h2>
 
   <!- https://mapsengine.google.com/map/u/0/edit?mid=zpym0cAvjSSo.kkwcnpXSTtsw ->
-  <iframe src="https://mapsengine.google.com/map/embed?mid=zZ0O1H1nj5vA.krAMja3c9q9M" 
-  width="400" height="400"></iframe>
+  <iframe src="https://mapsengine.google.com/map/embed?mid=zZ0O1H1nj5vA.krAMja3c9q9M" width="80%" height="50%"></iframe>
 
+</div>
+
+<div class="section" anchor="rsvp" id="rsvp">
+  <iframe src="https://docs.google.com/forms/d/1N5cV5hlon7Wo8vcyNo19iLrILMKJ41s4p5S--do_LHo/viewform?embedded=true" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0">
+    Having trouble seeing or using the RSVP form? Please <a href="mailto:hi@k3n.be">let us know</a>!
+  </iframe>
 </div>
 
 <div class="section" anchor="share" id="share">
@@ -214,43 +128,3 @@
 
 </body>
 </html>
-
-
-<!-- <div id="infoMenu">
-  <ul>
-    <li><a href="https://github.com/alvarotrigo/fullPage.js/archive/master.zip">Download</a></li>
-    <li>
-      <a href="#" id="showExamples">Examples</a>
-      <div id="examplesList">
-        <div class="column">
-          <h3>Navigation</h3>
-          <ul>
-            <li><a href="navigationV.html">Vertical navigation dots</a></li>
-            <li><a href="navigationH.html">Horizontal navigation dots</a></li>
-            <li><a href="normalScroll.html">Normal scrolling</a></li>
-            <li><a href="noAnchor.html">Without anchor links (same URL)</a></li>
-          </ul>
-        </div>
-        <div class="column">
-          <h3>Design</h3>
-          <ul>
-            <li><a href="backgrounds.html">Full backgrounds</a></li>
-            <li><a href="gradientBackgrounds.html">Gradient backgrounds</a></li>
-            <li><a href="scrolling.html">Scrolling inside sections and slides</a></li>
-            <li><a href="fixedHeaders.html">Adding fixed header and footer</a></li>
-          </ul>
-        </div>
-        <div class="column">
-          <h3>Callbacks</h3>
-          <ul>
-            <li><a href="apple.html">Animations on scrolling</a></li>
-          </ul>
-        </div>
-      </div>
-  
-    </li>
-    <li><a href="https://github.com/alvarotrigo/fullPage.js#fullpagejs">Documentation</a></li>
-    <li><a href="http://alvarotrigo.com/#contact-page">Contact</a></li>
-  </ul>
-
-</div> -->
