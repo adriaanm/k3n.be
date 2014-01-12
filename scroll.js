@@ -65,7 +65,7 @@
 
       $('.menu').find('a[href="' + hash + '"]').addClass('active').siblings().removeClass('active')
 
-      if (location.hash != hash) {
+      if (!isTablet && location.hash != hash) {
         var scrollTop = window.pageYOffset
         location.hash = hash
         $(window).scrollTop(scrollTop)
