@@ -11,6 +11,19 @@
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>	
 
+  <!-- Place somewhere in the <head> of your document -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/flexslider/2.2/flexslider.css" type="text/css">
+  <script src="//cdn.jsdelivr.net/flexslider/2.2/jquery.flexslider.js"></script>
+
+  <script type="text/javascript" charset="utf-8">
+    $(window).load(function() {
+      $('.flexslider').flexslider({
+        animation: "slide",
+        slideshow: false
+      });
+    });
+  </script>
+
   <script type="text/javascript" src="vendors/underscore-min.js"></script>
   <script type="text/javascript" src="scroll.js"></script>
   <script type="text/javascript" src="animate.js"></script>
@@ -54,16 +67,21 @@
 <div class="section" id="us">
   <h1>Katherine & Adriaan</h1>
 
-  <div class="slide" id="anniversary">
-  </div>
-
-  <div class="slide" id="delices">
-  </div>
-
-  <div class="slide" id="booth">
-  </div>
-
-  <div class="slide" id="yosemite">
+  <div class="flexslider">
+    <ul class="slides">
+      <li><img src="/images/anniversary.jpg">
+        <p class="flex-caption">Glammed up for our anniversary dinner at Chez Panisse.</p>
+      </li>
+      <li><img src="/images/delices.jpg">
+        <p class="flex-caption">Ice cream, or creme glacée as Les Parisiens say, or second dessert, as we like to say.</p>
+      </li>
+      <li><img src="/images/booth.jpg">        
+        <p class="flex-caption">Mandatory photo booth couples pics.</p>
+      </li>
+      <li><img src="/images/yosemite.jpg">
+        <p class="flex-caption">Visiting Yosemite, with our friends El Capitan and Half Dome in the background.</p>
+      </li>
+    </ul>
   </div>
 </div>
 

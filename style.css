@@ -65,32 +65,12 @@ a:hover{
 }
 
 #us.section {
-  background-color: #1BBC9B;
+  background-color: rgb(192,192,192);
 }
 
-#anniversary.slide div,
-#delices.slide     div,
-#booth.slide       div,
-#yosemite.slide    div {
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-#anniversary.slide div {
-  background-image: url(/images/anniversary.jpg);
-}
-
-#delices.slide     div {
-  background-image: url(/images/delices.jpg);
-}
-
-#booth.slide       div {
- background-image: url(/images/booth.jpg);
-}
-
-#yosemite.slide    div {
-  background-image: url(/images/yosemite.jpg);
+.flexslider .slides img {
+  max-height: 80%;
+  max-width: 40%;
 }
 
 #party.section {
