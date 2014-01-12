@@ -122,7 +122,7 @@
 			}
 
 			$(this).css('height', windowsHeight + 'px');
-			
+			element.addClass('table').wrapInner('<div class="tableCell" style="height:' + windowsHeight + 'px;" />');
 			if(options.paddingTop || options.paddingBottom){
 				$(this).css('padding', options.paddingTop  + ' 0 ' + options.paddingBottom + ' 0');
 			}

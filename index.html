@@ -6,40 +6,41 @@
 
   <link href='http://fonts.googleapis.com/css?family=Josefin+Sans|Josefin+Slab:400,700|Merriweather:400' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" type="text/css" href="fullPage.js/jquery.fullPage.css" />
   <link rel="stylesheet" type="text/css" href="style.css" />
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>	
 
-  <script type="text/javascript" src="fullPage.js/vendors/jquery.slimscroll.min.js"></script>
-  <script type="text/javascript" src="fullPage.js/jquery.fullPage.js"></script>
-
-  <script type="text/javascript" src="animate.js"></script>
-
   <script type="text/javascript">
-    $(document).ready(function() {
-      $.fn.fullpage({
-        menu: '#menu',
-        // slidesNavigation: true,
-        autoScrolling: false
-      });
-    });
+    (function($) {
+      $(window).on('load', function() {
+        $('.section').each(function(el, index){
+          $(this).css('height', $(window).height() + 'px')
+        })
+      })
+    })(jQuery)
   </script>
+
+  <script type="text/javascript" src="vendors/underscore-min.js"></script>
+  <script type="text/javascript" src="animate.js"></script>
 </head>
 
 <body>
 
-<ul id="menu">
-  <li menuanchor="us"> <a href="#us">the story</a> </li>
-  <li menuanchor="party"> <a href="#party">the party</a> </li>
-  <li menuanchor="schedule"> <a href="#schedule">the day</a> </li>
-  <li menuanchor="where"> <a href="#where">the place</a> </li>
-  <li menuanchor="rsvp"> <a href="#rsvp">RSVP</a> </li>
-  <li menuanchor="share"> <a href="#share">share</a> </li>
-  <li menuanchor="gifts"> <a href="#gifts">gifts</a> </li>
-  <li menuanchor="stay"> <a href="#stay">stay!</a> </li>
-</ul>
+<nav class="menu">
+  <ul>
+    <li> <a class="nav" href="#us">the story</a> </li>
+    <li> <a class="nav" href="#party">the party</a> </li>
+    <li> <a class="nav" href="#schedule">the day</a> </li>
+    <li> <a class="nav" href="#where">the place</a> </li>
+    <li> <a class="nav" href="#rsvp">RSVP</a> </li>
+    <li> <a class="nav" href="#share">share</a> </li>
+    <li> <a class="nav" href="#gifts">gifts</a> </li>
+    <li> <a class="nav" href="#stay">stay!</a> </li>
+  </ul>
+</nav>
+
+<div id="superContainer">
 
 <div class="section">
   <span class="dateFrom">
@@ -53,11 +54,11 @@
 
 <div class="section">
   <span class="dateTo">
-    <span id="zero">0</span><span id="four">4</span>/<span id="one">1</span><span id="two">2</span>/<span id="year">2014</div>
+    <span id="zero">0</span><span id="four">4</span>/<span id="one">1</span><span id="two">2</span>/<span id="year">2014</span>
   </span>
 </div>
 
-<div class="section" anchor="us" id="us">
+<div class="section" id="us">
   <h1>Katherine & Adriaan</h1>
 
   <div class="slide" id="anniversary">
@@ -71,14 +72,13 @@
 
   <div class="slide" id="yosemite">
   </div>
-
 </div>
 
-<div class="section" anchor="party" id="party">
+<div class="section" id="party">
   <h1>our families</h1>
 </div>
 
-<div class="section" anchor="schedule" id="schedule">
+<div class="section" id="schedule">
   <h1>schedule</h1>
   <h2>April 12th, 2014</h2>
   <h3>4:30pm start of festivities</h3>
@@ -87,7 +87,7 @@
   <h3>10:30pm after-party...</h3>
 </div>
 
-<div class="section" anchor="where" id="where">
+<div class="section" id="where">
   <h1>location</h1>
   <h2>Potrero Hill Neighborhood House</h2>
   <h3><a href="https://maps.google.com/maps?q=Potrero+Hill+Neighborhood+House,+953+De+Haro+St+San+Francisco,+CA+94107">953 De Haro St, San Francisco, CA 94107</a></h2>
@@ -97,25 +97,25 @@
 
 </div>
 
-<div class="section" anchor="rsvp" id="rsvp">
+<div class="section" id="rsvp">
   <iframe src="https://docs.google.com/forms/d/1N5cV5hlon7Wo8vcyNo19iLrILMKJ41s4p5S--do_LHo/viewform?embedded=true" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0">
     Having trouble seeing or using the RSVP form? Please <a href="mailto:hi@k3n.be">let us know</a>!
   </iframe>
 </div>
 
-<div class="section" anchor="share" id="share">
+<div class="section" id="share">
   <h1>share with us</h1>
   <h2>#k3n</h2>
 </div>
 
-<div class="section" anchor="gifts" id="gifts">
+<div class="section" id="gifts">
   <h1>gifts</h1>
   <h3>We would love a <a href="https://square.com/cash">contribution</a> to <a href="mailto:thanks@k3n.be?Subject=???$&CC=cash@square.com">our travel fund</a>!</h3>
   <h3>We do like gifts, but have all the <a href="https://www.youtube.com/watch?v=4x_QkGPCL18" style="color:black">stuff</a> we need.</h3>
 </div>
 
 
-<div class="section" anchor="stay" id="stay">
+<div class="section" id="stay">
   <h1>stay awhile!</h1>
 
   <div class="slide">
@@ -135,6 +135,7 @@
   </div>
 </div>
 
+</div>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -146,5 +147,6 @@
   ga('send', 'pageview');
 
 </script>
+
 </body>
 </html>
