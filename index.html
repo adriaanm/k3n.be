@@ -11,51 +11,44 @@
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>	
 
-  <script type="text/javascript">
-    (function($) {
-      $(window).on('load', function() {
-        $('.section').each(function(el, index){
-          $(this).css('height', $(window).height() + 'px')
-        })
-      })
-    })(jQuery)
-  </script>
-
   <script type="text/javascript" src="vendors/underscore-min.js"></script>
+  <script type="text/javascript" src="scroll.js"></script>
   <script type="text/javascript" src="animate.js"></script>
 </head>
 
 <body>
 
 <nav class="menu">
-  <ul>
-    <li> <a class="nav" href="#us">the story</a> </li>
-    <li> <a class="nav" href="#party">the party</a> </li>
-    <li> <a class="nav" href="#schedule">the day</a> </li>
-    <li> <a class="nav" href="#where">the place</a> </li>
-    <li> <a class="nav" href="#rsvp">RSVP</a> </li>
-    <li> <a class="nav" href="#share">share</a> </li>
-    <li> <a class="nav" href="#gifts">gifts</a> </li>
-    <li> <a class="nav" href="#stay">stay!</a> </li>
-  </ul>
+ <a href="#us">the story</a>
+ <a href="#party">the party</a>
+ <a href="#schedule">the day</a>
+ <a href="#where">the place</a>
+ <a href="#rsvp">RSVP</a>
+ <a href="#share">share</a>
+ <a href="#gifts">gifts</a>
+ <a href="#stay">stay!</a>
 </nav>
 
 <div id="superContainer">
 
 <div class="section">
-  <span class="dateFrom">
-    <span id="two">2</span><span id="zero">0</span><span id="one">1</span><span id="four">4</span>
-  </span>
+  <div class="dateContainer">
+    <span class="dateFrom">
+      <span id="two">2</span><span id="zero">0</span><span id="one">1</span><span id="four">4</span>
+    </span>
+  </div>
   <span class="dateMoving">
     <span id="two">2</span><span id="zero">0</span><span id="one">1</span><span id="four">4</span>
     <span id="year">2014</span>
   </span>
 </div>
 
-<div class="section">
-  <span class="dateTo">
-    <span id="zero">0</span><span id="four">4</span>/<span id="one">1</span><span id="two">2</span>/<span id="year">2014</span>
-  </span>
+<div class="section" id="date">
+  <div class="dateContainer">
+    <span class="dateTo">
+      <span id="zero">0</span><span id="four">4</span>/<span id="one">1</span><span id="two">2</span>/<span id="year">2014</span>
+    </span>
+  </div>
 </div>
 
 <div class="section" id="us">

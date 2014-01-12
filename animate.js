@@ -33,8 +33,8 @@ function aniDate() {
     dateTo.css('visibility', 'visible')
   }
 
-  if (pct < 1.2) $("#menu").css('visibility', 'hidden')
-  else $("#menu").css('visibility', 'visible')
+  if (pct < 1.2) $(".menu").css('visibility', 'hidden')
+  else $(".menu").css('visibility', 'visible')
 
   if (pct <= 1) {
     interpolate(pct, $(".dateFrom #two").offset(), $(".dateMoving #two"), $(".dateTo #two").offset())
@@ -76,5 +76,19 @@ function loop() {
   scroll(loop)
 }
 loop()
+
+var isTablet = navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|Windows Phone)/)
+
+function scrollToSecond() {
+  if (window.pageYOffset == 0){
+    $('html, body').animate({
+      scrollTop: $("div #date").offset().top
+    }, 5000, "linear")
+  }
+}
+
+if (isTablet) {
+  setTimeout(scrollToSecond, 1500)
+}
 
 });

@@ -4,103 +4,85 @@
 
 (function($) {
   // list of divs whose id match the href (minus the #) of a menu item
-  // sorted so that last item comes first (we'll use find first while scrolling)
   var sectionsInMenu = []
-
-  var isTablet = navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|Windows Phone)/)
-
-  var windowsHeight = $(window).height()
 
   var currentSection = undefined
 
   $(window).on('load', function() {
-    $('.section').each(function(index){
-      if (index == 0) {
-        $(this).addClass('active')
-      }
-
-      $(this).css('height', windowsHeight + 'px')
-    })
-
-    // get divs that have a menu item, so we can activate it on scrolling there (http://stackoverflow.com/a/9980042)
-    sectionsInMenu = _.sortBy($('.menu a').map(function() {
-      return sectionFromId(idFromHash(this.hash))
-    }), function(div) {
-      return -div.offset().top
-    })
-
-    scrollTo(sectionFromId(idFromHash(window.hash)))
+    initSectionsInMenu()
+    scrollToHash()
   })
 
-  if (!isTablet) {
-    var resizeId
-
-    //when resizing the site, we adjust the heights of the sections
-    $(window).resize(function() {
-      //in order to call the functions only when the resize is finished
-      //http://stackoverflow.com/questions/4298612/jquery-how-to-call-resize-event-only-once-its-finished-resizing
-      clearTimeout(resizeId)
-      resizeId = setTimeout(setSizes, 500)
-    })
-  }
-
-  $(window).bind('orientationchange', function() {
-    setSizes()
-  })
-
-  //when scrolling...
   $(window).scroll(function(e) {
-    var scrollTop = $(window).scrollTop()
+    var scrollTop = window.pageYOffset
 
-    // first one, because list is sorted by descending offset().top
-    setCurrentSection(_.find(sectionsInMenu, function(section) {
-      return section.offset().top <= scrollTop
-    }))
+    var closest = _.sortBy(sectionsInMenu, function(section) {
+      var top = section.offset().top
+      return (top - scrollTop) * (top - scrollTop)
+    })[0]
+
+    setCurrentSection(closest)
   })
 
   $(window).on('hashchange', function() {
-    scrollTo(sectionFromId(idFromHash(window.hash)))
+    if (location.hash != "" && location.hash != undefined)
+      scrollToHash()
   })
 
+  function initSectionsInMenu() {
+    // get divs that have a menu item, so we can activate it on scrolling there (http://stackoverflow.com/a/9980042)
+    sectionsInMenu = $('.menu a').map(function() {
+      var section = sectionFromId(idFromHash(this.hash))
+
+      $(this).on("click", function( event ){
+        event.preventDefault()
+        scrollToSection(section)
+      });
+
+      return section
+    })
+  }
+
   function idFromHash(hash) {
-    return hash.substring(1)
+    if (hash != undefined) return hash.substring(1)
   }
 
   function sectionFromId(id) {
-    $('div[id="' + id + '"]')
+    return $('div.section[id="' + id + '"]')
+  }
+
+  function currentSectionNeedsChange(element) {
+    return element != undefined && element.attr('id') != undefined &&
+           (currentSection == undefined || element.attr('id') != currentSection.attr('id'))
   }
 
   function setCurrentSection(element) {
-    if (element != currentSection) {
+    if (currentSectionNeedsChange(element)) {
       currentSection = element
-
-      // $('.section.active').removeClass('active')
       currentSection.addClass('active').siblings().removeClass('active')
 
-      var hash = '#' + currentSection.id
+      var hash = '#' + currentSection.attr('id')
 
-      location.hash = hash
+      $('.menu').find('a[href="' + hash + '"]').addClass('active').siblings().removeClass('active')
 
-      $('.menu a').find('.active').removeClass('active')
-      $('.menu a').find('[href="' + hash + '"]').addClass('active')
+      if (location.hash != hash) {
+        var scrollTop = window.pageYOffset
+        location.hash = hash
+        $(window).scrollTop(scrollTop)
+      }
     }
   }
 
-  function scrollTo(element) {
-    if (element != currentSection) {
+  function scrollToSection(element) {
+    if (currentSectionNeedsChange(element)) {
       setCurrentSection(element)
       $('html, body').animate({
         scrollTop: element.offset().top
-      }, 700, "easeInQuart")
+      }, 2500, "easeOutCubic")
     }
   }
 
-  function setSizes() {
-    windowsHeight = $(window).height()
-
-    //text and images resizing
-    $('.section').each(function() {
-      $(this).css('height', windowsHeight + 'px')
-    })
+  function scrollToHash() {
+    scrollToSection(sectionFromId(idFromHash(location.hash)))
   }
 })(jQuery)

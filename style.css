@@ -1,31 +1,15 @@
 body, html {
   margin:0;
   padding:0;
+  height: 100%;
 }
 
-#superContainer {
-  height:100%;
-  width:100%;
-  position:relative;
-}
-.section{
-  -webkit-box-sizing: border-box; 
-    -moz-box-sizing: border-box; 
-         box-sizing: border-box; 
-
-/*  display:table-cell;*/
-  vertical-align: middle;
-  width: 100%;
-}
-
-/* Style for our header texts 
-* --------------------------------------- */
 h1 {
-	font-size: 5em;	
-	font-family: 'Josefin Sans',arial,helvetica;
-	color: #fff;
-	margin:0;
-        padding-top: .3em;
+  font-size: 5em;	
+  font-family: 'Josefin Sans',arial,helvetica;
+  color: #fff;
+  margin:0;
+  padding-top: .3em;
 }
 
 h2 {
@@ -49,6 +33,25 @@ a {
 
 a:hover{
   border-bottom: 1px solid;
+}
+
+
+#superContainer {
+  height:100%;
+  width:100%;
+}
+
+.section {
+  -webkit-box-sizing: border-box; 
+    -moz-box-sizing: border-box; 
+         box-sizing: border-box; 
+
+  height: 100%;
+  width: 100%;
+  position:relative;
+
+  text-align: center;
+  background-color: hsl(50, 82%, 78%);
 }
 
 #schedule.section {
@@ -99,6 +102,7 @@ a:hover{
 }
 
 #rsvp.section {
+  min-height: 1140px;
 }
 
 #share.section {
@@ -116,13 +120,13 @@ a:hover{
 	color: #fff;
 }
 
-/* Centered texts in each section 
-* --------------------------------------- */
-.section {
-        text-align: center;
-  background-color: hsl(50, 82%, 78%);
+.dateContainer {
+  height: 10em;
+  margin: auto;
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 0;  right: 0;
 }
-
 
 .dateFrom, .dateMoving, .dateTo {
 	font-size: 10em;	
@@ -132,58 +136,51 @@ a:hover{
 }
 
 .dateMoving {
-  display: none;
+  visibility: hidden;
 }
 
 .menu {
   font-family: 'Merriweather', serif;
 
-  // TODO: fix spacing bug -- slides are off by menu height;
 	position:fixed;
 	right: 20px;
   bottom: 20px;
 	z-index: 70;
-  visibility: hidden;
+/*  visibility: hidden;*/
 	margin:  0px;
   padding: 0px;
 }
 
-.menu li {
+.menu a{
 	display: inline-block;
   padding: 5px 8px;
 
-  background: white;
-  opacity: .5;
-  transition: opacity .5s ease-out;
-  -moz-transition: opacity .5s ease-out;
-  -webkit-transition: opacity .5s ease-out;
-  -o-transition: opacity .5s ease-out;
-
 	-webkit-border-radius: 12px; 
             border-radius: 12px; 
-}
-.menu li:hover {
-  opacity: .8;
-  transition: opacity .5s ease-out;
-  -moz-transition: opacity .5s ease-out;
-  -webkit-transition: opacity .5s ease-out;
-  -o-transition: opacity .5s ease-out;
-}
-.menu .active {
-  opacity: 1;
-}
 
-.menu li a{
-	text-decoration: none;
+        text-decoration: none;
   color: black;
   opacity: .5;
   transition: opacity .5s ease-out;
   -moz-transition: opacity .5s ease-out;
   -webkit-transition: opacity .5s ease-out;
   -o-transition: opacity .5s ease-out;
+
+  background: white;
 }
 
-.menu li a:hover{
-	text-decoration: none;
+.menu a.active{
   opacity: 1;
+}
+
+.menu a:hover{
+	text-decoration: none;
+  opacity: .8;
+  border-bottom: none;
+
+  transition: opacity .5s ease-out;
+  -moz-transition: opacity .5s ease-out;
+  -webkit-transition: opacity .5s ease-out;
+  -o-transition: opacity .5s ease-out;
+
 }
