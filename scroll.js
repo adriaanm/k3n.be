@@ -8,6 +8,8 @@
 
   var currentSection = undefined
 
+  var isTablet = navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|Windows Phone)/)
+
   $(window).on('load', function() {
     initSectionsInMenu()
     scrollToHash()
