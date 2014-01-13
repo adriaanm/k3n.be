@@ -11,6 +11,8 @@ function interpolate(pct, from, moving, to) {
   }) // actual movement...
 }
 
+var belgium = $(".dateFrom #five").length > 0
+
 // TODO: can we make this work on mobile?
 function aniDate() {
   var top = window.pageYOffset
@@ -37,11 +39,20 @@ function aniDate() {
   else $(".menu").css('visibility', 'visible')
 
   if (pct <= 1) {
-    interpolate(pct, $(".dateFrom #two").offset(), $(".dateMoving #two"), $(".dateTo #two").offset())
-    interpolate(pct, $(".dateFrom #zero").offset(), $(".dateMoving #zero"), $(".dateTo #zero").offset())
-    interpolate(pct, $(".dateFrom #one").offset(), $(".dateMoving #one"), $(".dateTo #one").offset())
-    interpolate(pct, $(".dateFrom #four").offset(), $(".dateMoving #four"), $(".dateTo #four").offset())
-    interpolate(pct, $(".dateFrom #two").offset(), $(".dateMoving #year"), $(".dateTo #year").offset())
+    if (belgium) {
+      interpolate(pct, $(".dateFrom #zero").offset(), $(".dateMoving #zero"), $(".dateTo #zero").offset())
+      interpolate(pct, $(".dateFrom #one").offset(), $(".dateMoving #one"), $(".dateTo #one").offset())
+      interpolate(pct, $(".dateFrom #two").offset(), $(".dateMoving #two"), $(".dateTo #two").offset())
+      interpolate(pct, $(".dateFrom #three").offset(), $(".dateMoving #three"), $(".dateTo #three").offset())
+      interpolate(pct, $(".dateFrom #four").offset(), $(".dateMoving #four"), $(".dateTo #four").offset())
+      interpolate(pct, $(".dateFrom #five").offset(), $(".dateMoving #five"), $(".dateTo #five").offset())
+    } else {
+      interpolate(pct, $(".dateFrom #two").offset(), $(".dateMoving #two"), $(".dateTo #two").offset())
+      interpolate(pct, $(".dateFrom #zero").offset(), $(".dateMoving #zero"), $(".dateTo #zero").offset())
+      interpolate(pct, $(".dateFrom #one").offset(), $(".dateMoving #one"), $(".dateTo #one").offset())
+      interpolate(pct, $(".dateFrom #four").offset(), $(".dateMoving #four"), $(".dateTo #four").offset())
+      interpolate(pct, $(".dateFrom #two").offset(), $(".dateMoving #year"), $(".dateTo #year").offset())
+    }
   }
 }
 

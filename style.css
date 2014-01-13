@@ -2,11 +2,11 @@ body, html {
   margin:0;
   padding:0;
   height: 100%;
+  font-family: 'Josefin Sans',arial,helvetica;
 }
 
 h1 {
   font-size: 4em;	
-  font-family: 'Josefin Sans',arial,helvetica;
   color: #fff;
   margin:0;
   padding-top: .3em;
@@ -14,25 +14,28 @@ h1 {
 
 h2 {
 	font-size: 3em;	
-	font-family: 'Josefin Sans',arial,helvetica;
 	color: #000;
 	margin: .5em;
 }
 
 h3 {
 	font-size: 1.5em;	
-	font-family: 'Josefin Sans',arial,helvetica;
 	color: #000;
 	margin: .5em;
+}
+
+p {
+  font-size: 1.1em;
 }
 
 a {
   color: #eee;
   text-decoration: none;
+  border-bottom: 1px solid;
 }
 
 a:hover{
-  border-bottom: 1px solid;
+  border-bottom: 3px solid;
 }
 
 
@@ -77,6 +80,20 @@ a:hover{
   visibility: hidden;
 }
 
+/* landing */
+#landing {
+  height: 100%;
+  width: 100%;
+  position:relative;
+
+  text-align: center;
+  background-color: #000;
+  position: relative;
+}
+
+#choices {
+  height: 26em; /* just winging it */
+}
 
 /* story */
 #us.section {
@@ -251,6 +268,7 @@ a:hover{
   -o-transition: opacity .5s ease-out;
 
   background: white;
+  border-bottom: 0;
 }
 
 .menu a.active{
