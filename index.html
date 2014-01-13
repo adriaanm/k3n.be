@@ -17,12 +17,25 @@
 
   <script type="text/javascript" charset="utf-8">
     $(window).load(function() {
-      $('.flexslider').flexslider({
+      $('#us-slider').flexslider({
         animation: "slide",
         itemWidth: 500,
         maxItems: 1,
-        slideshow: false
+        slideshow: true,
+        keyboard: true,
+        multipleKeyboard: true
       });
+
+      $('#party-slider').flexslider({
+        animation: "slide",
+        itemWidth: 500,
+        randomize: true,
+        maxItems: 1,
+        slideshow: true,
+        keyboard: true,
+        multipleKeyboard: true
+      });
+
     });
   </script>
 
@@ -34,10 +47,11 @@
 <body>
 
 <nav class="menu">
- <a href="#us">the story</a>
- <a href="#party">the party</a>
- <a href="#schedule">the day</a>
- <a href="#where">the place</a>
+ <a href="#us">k-3-n</a>
+ <a href="#party">family</a>
+ <a href="#schedule">day</a>
+ <a href="#where">place</a>
+ <a href="#hotel">hotel</a>
  <a href="#rsvp">RSVP</a>
  <a href="#share">share</a>
  <a href="#gifts">gifts</a>
@@ -69,13 +83,13 @@
 <div class="section" id="us">
   <h1>Katherine & Adriaan</h1>
 
-  <div class="flexslider vcenter">
+  <div id="us-slider" class="flexslider vcenter">
 
     <ul class="slides">
       <li>
         <div class="slide-wrapper">
           <div class="left-image">
-            <div class="anniversary"></div>
+            <div class="anniversary slide-image"></div>
             <h3 class="caption">
               Glammed up for our anniversary dinner at Chez Panisse.
             </h3>
@@ -94,13 +108,14 @@
       <li>
         <div class="slide-wrapper">
           <div class="left-image">
-            <div class="delices"></div>
+            <div class="delices slide-image"></div>
             <h3 class="caption">
-              Ice cream, or creme glacée as Les Parisiens say, or second dessert, as we like to say.
+              Ice Cream in Paris
             </h3>
           </div>
           <div class="right-text slide-text">
             <h3 class="slide-title">
+              Macarons glacés for second dessert.
             </h3>
             <p>
               nomnomnom
@@ -112,7 +127,7 @@
       <li>
         <div class="slide-wrapper">
           <div class="left-image">
-            <div class="booth"></div>
+            <div class="booth slide-image"></div>
             <h3 class="caption">
               Mandatory photo booth couples pics.
             </h3>
@@ -128,13 +143,14 @@
       <li>
         <div class="slide-wrapper">
           <div class="left-image">
-            <div class="yosemite"></div>
+            <div class="yosemite slide-image"></div>
             <h3 class="caption">
-              Visiting Yosemite, with our friends El Capitan and Half Dome in the background.
+              Hiking in Yosemite
             </h3>
           </div>
           <div class="right-text slide-text">
             <h3 class="slide-title">
+              With our friends El Capitan and Half Dome in the background.
             </h3>
             <p>
               nomnomnom
@@ -148,6 +164,66 @@
 
 <div class="section" id="party">
   <h1>our families</h1>
+
+   <div id="party-slider" class="flexslider vcenter">
+    
+    <ul class="slides">
+      <li>
+        <div class="slide-wrapper">
+          <div class="left-image">
+            <div class="moors slide-image"></div>
+            <h3 class="caption">
+              Marie-Michèle & Gerard
+            </h3>
+          </div>
+          <div class="right-text slide-text">
+            <h3 class="slide-title">
+            </h3>
+            <p>
+            </p>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="slide-wrapper">
+          <div class="left-image">
+            <div class="loh slide-image"></div>
+            <h3 class="caption">
+              Diane & Doug
+            </h3>
+          </div>
+          <div class="right-text slide-text">
+            <h3 class="slide-title">
+            </h3>
+            <p>
+              nomnomnom
+            </p>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="slide-wrapper">
+          <div class="left-image">
+            <div class="dillon slide-image"></div>
+            <h3 class="caption">
+              Rose & Steve 
+            </h3>
+          </div>
+          <div class="right-text slide-text">
+            <h3 class="slide-title">
+            </h3>
+            <p>
+              nomnomnom
+            </p>
+          </div>
+        </div>
+      </li>
+
+    </ul> 
+
+  </div> 
 </div>
 
 <div class="section" id="schedule">
@@ -167,6 +243,10 @@
   <!- https://mapsengine.google.com/map/u/0/edit?mid=zpym0cAvjSSo.kkwcnpXSTtsw ->
   <iframe src="https://mapsengine.google.com/map/embed?mid=zZ0O1H1nj5vA.krAMja3c9q9M" width="80%" height="50%"></iframe>
 
+</div>
+
+<div class="section" id="hotel">
+  <h1>hotel info</h2>
 </div>
 
 <div class="section" id="rsvp">
@@ -190,21 +270,9 @@
 <div class="section" id="stay">
   <h1>stay awhile!</h1>
 
-  <div class="slide">
-  <h2>hotel info</h2>
-  </div>
-  
-  <div class="slide">
-  <h2>where to eat</h2>
-  </div>
+  <h2>where to eat & drink</h2>
 
-  <div class="slide" >
-  <h2>where to drink</h2>
-  </div>
-
-  <div class="slide" >
   <h2>where to mosey around</h2>
-  </div>
 </div>
 
 </div>

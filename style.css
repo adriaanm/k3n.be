@@ -54,7 +54,6 @@ a:hover{
   background-color: hsl(50, 82%, 78%);
 }
 
-
 .vcenter {
   margin: auto;
   position: absolute;
@@ -62,6 +61,7 @@ a:hover{
   left: 0;  right: 0;
 }
 
+/* intro */
 .dateContainer {
   height: 10em;
 }
@@ -78,7 +78,51 @@ a:hover{
 }
 
 
+/* story */
+#us.section {
+  background-color: #aaa;
+  position: relative;
+}
 
+.anniversary {
+  background: url(/images/anniversary.jpg) top center no-repeat;
+}
+
+.delices {
+  background: url(/images/delices.jpg) top center no-repeat;
+}
+
+.booth {
+  background: url(/images/booth.jpg) top center no-repeat;
+}
+
+.yosemite {
+  background: url(/images/yosemite.jpg) top center no-repeat;
+}
+
+#us.section .flexslider { 
+}
+
+
+/* family */
+#party.section {
+/*  background-color: hsl(204, 59%, 41%);*/
+}
+
+.moors {
+  background: url(/images/anniversary.jpg) top center no-repeat;
+}
+
+.loh {
+  background: url(/images/delices.jpg) top center no-repeat;
+}
+
+.dillon {
+  background: url(/images/booth.jpg) top center no-repeat;
+}
+
+
+/* schedule */
 #schedule.section {
   background-color: #1BBC9B;
 }
@@ -89,55 +133,52 @@ a:hover{
   margin: 1em;
 }
 
-
-
-#us.section {
-  background-color: #aaa;
-      position: relative;
+/* location */
+#where.section {
+  background-color: hsl(204, 59%, 41%);
 }
 
-.anniversary {
-    width: 500px;
-    height: 500px;
-    background: url(/images/anniversary.jpg) top center no-repeat;
-    background-size: contain;
+/* hotel */
+#hotel.section {
 }
 
-.delices {
-  width: 500px;
-  height: 500px;
-    background: url(/images/delices.jpg) top center no-repeat;
-    background-size: contain;
+/* RSVP */
+#rsvp.section {
+  min-height: 1140px;
 }
 
-.booth {
-  width: 500px;
-  height: 500px;
-    background: url(/images/booth.jpg) top center no-repeat;
-    background-size: contain;
+/* share */
+#share.section {
+  background-color: #4c66a4;
 }
 
-.yosemite {
-  width: 500px;
-  height: 500px;
-    background: url(/images/yosemite.jpg) top center no-repeat;
-    background-size: contain;
+/* gifts */
+#gifts.section {
+  background-color: rgb(221, 84, 20);
 }
 
-#us.section .slide-wrapper {
-    margin: 0 auto;
-    text-align: left;
-    display: inline-flex;
+/* stay */
+#stay.section {
 }
 
-#us.section .right-text {
+/* flexslider */
+.section .slide-wrapper {
+  margin: 0 auto;
   text-align: left;
-  width: 350px;
-  display: inline-block;
-  padding-left: 40px;
+  display: inline-flex;
 }
 
-#us.section .left-image {
+.section .flexslider { 
+  background-color: inherit;
+
+  height: 540px;
+  padding-top: 10px;
+  border: none;
+  box-shadow: none;
+  zoom: 1;
+}
+
+.section .left-image {
   text-align: left;
   width: 500px;
   display: inline-block;
@@ -155,63 +196,33 @@ a:hover{
   box-shadow: 0 1px 4px rgba(0,0,0,.2);
 }
 
-div.left-image div {
-}
-
-div#us .flexslider { 
-  height: 540px;
-
-  padding-top: 20px;
-
-  background-color: #aaa;
-  border: none;
-  box-shadow: none;
-  zoom: 1;
-}
-
-div#us .flex-control-nav {
-/*  bottom: 0px;
-  margin-left: 250px;
-  text-align: center;
-*/
+.slide-image {
+  width: 500px;
+  height: 500px;
+  background-size: contain;
 }
 
 .caption {
-  font-weight: 300;
+  font-weight: 600;
+  font-size: 1.1em;
   text-align: center;
-  margin-top: .2em;
-  margin-bottom: 0;
+  margin-top: 1em;
   padding-bottom: 0;
 }
 
-
-#party.section {
-/*  background-color: hsl(204, 59%, 41%);*/
+.section .right-text {
+  text-align: left;
+  width: 350px;
+  display: inline-block;
+  padding-left: 40px;
 }
 
-#where.section {
-  background-color: hsl(204, 59%, 41%);
+.flex-control-nav {
+  top: 600px;
 }
 
-#rsvp.section {
-  min-height: 1140px;
-}
 
-#share.section {
-  background-color: #4c66a4;
-}
-
-#gifts.section {
-  background-color: rgb(221, 84, 20);
-}
-
-#stay.section {
-}
-
-.intro p {
-	color: #fff;
-}
-
+/* menu */
 .menu {
   font-family: 'Merriweather', serif;
 

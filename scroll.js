@@ -15,6 +15,7 @@
     scrollToHash()
   })
 
+  // TODO: elastically snap to top of section if close enough
   $(window).scroll(function(e) {
     var scrollTop = window.pageYOffset
 
