@@ -36,6 +36,13 @@ a {
   border-bottom: 1px solid;
 }
 
+a.flex-prev,
+a.flex-next,
+a.flex-prev:hover,
+a.flex-next:hover {
+  border-bottom: 0;
+}
+
 a:hover{
   border-bottom: 3px solid;
 }
@@ -56,6 +63,7 @@ a:hover{
   position:relative;
 
   text-align: center;
+  overflow: clip;
 }
 
 .vcenter {
@@ -132,15 +140,15 @@ a:hover{
 }
 
 .moors {
-/*  background: url(/images/anniversary.jpg) top center no-repeat;*/
+  background: url(/images/moors.jpg) top center no-repeat;
 }
 
 .loh {
-/*  background: url(/images/delices.jpg) top center no-repeat;*/
+/*  background: url(/images/loh.jpg) top center no-repeat;*/
 }
 
 .dillon {
-/*  background: url(/images/booth.jpg) top center no-repeat;*/
+/*  background: url(/images/dillon.jpg) top center no-repeat;*/
 }
 
 
@@ -177,6 +185,9 @@ a:hover{
 /* gifts */
 #gifts.section {
   background-color: rgb(221, 84, 20);
+}
+
+#gifts.section h1 {
 }
 
 /* stay */
