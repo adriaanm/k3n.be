@@ -3,6 +3,7 @@ body, html {
   padding:0;
   height: 100%;
   font-family: 'Josefin Sans',arial,helvetica;
+  background: hsl(50, 82%, 78%);
 }
 
 h1 {
@@ -26,10 +27,11 @@ h3 {
 
 p {
   font-size: 1.1em;
+  text-align:justify;
 }
 
 a {
-  color: #eee;
+  color: black;
   text-decoration: none;
   border-bottom: 1px solid;
 }
@@ -54,7 +56,6 @@ a:hover{
   position:relative;
 
   text-align: center;
-  background-color: hsl(50, 82%, 78%);
 }
 
 .vcenter {
@@ -89,6 +90,10 @@ a:hover{
   text-align: center;
   background-color: #000;
   position: relative;
+}
+
+#landing a {
+  color: #eee;
 }
 
 #choices {
@@ -127,15 +132,15 @@ a:hover{
 }
 
 .moors {
-  background: url(/images/anniversary.jpg) top center no-repeat;
+/*  background: url(/images/anniversary.jpg) top center no-repeat;*/
 }
 
 .loh {
-  background: url(/images/delices.jpg) top center no-repeat;
+/*  background: url(/images/delices.jpg) top center no-repeat;*/
 }
 
 .dillon {
-  background: url(/images/booth.jpg) top center no-repeat;
+/*  background: url(/images/booth.jpg) top center no-repeat;*/
 }
 
 
