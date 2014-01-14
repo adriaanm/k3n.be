@@ -9,20 +9,20 @@ body, html {
 h1 {
   font-size: 4em;	
   color: #fff;
-  margin:0;
-  padding-top: .5em;
+  margin: 0;
+  padding-top: .1em;
 }
 
 h2 {
 	font-size: 3em;	
 	color: #000;
-	margin: .75em;
+  margin: .2em;
 }
 
 h3 {
 	font-size: 1.5em;	
 	color: #000;
-	margin: .5em;
+  margin: .2em;
   font-weight: 400;
 }
 
@@ -35,6 +35,31 @@ a {
   color: black;
   text-decoration: none;
   border-bottom: 1px solid;
+}
+
+.spacey h1 {
+  padding-top: 1em;
+}
+
+.spacey h2 {
+  margin: 1em;
+}
+
+.spacey h3 {
+  margin: .5em;
+}
+
+
+.spaceout h1 {
+  padding-top: 3em;
+}
+
+.spaceout h2 {
+  margin: 2em;
+}
+
+.spaceout h3 {
+  margin: 1em;
 }
 
 a.flex-prev,
@@ -226,6 +251,10 @@ a:hover{
 /* location */
 #where.section {
   background-color: hsl(204, 59%, 41%);
+}
+
+#where.section iframe {
+  margin: 1em;
 }
 
 /* hotel */
