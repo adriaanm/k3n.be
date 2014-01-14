@@ -4,24 +4,47 @@
   <meta http-equiv="Content-type" content="text/html; charset=utf-8">
   <title>Katherine &amp; Adriaan's Hitching Post</title>
 
-  <link href='http://fonts.googleapis.com/css?family=Josefin+Sans|Josefin+Slab:400,700|Merriweather:400' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Josefin+Sans:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" type="text/css" href="/style.css" />
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>	
 
+  <script type="text/javascript">
+    (function($) {
+      $(document).ready(function() {
+        $(".sf.landing-choice").hover(function(){ $("h2.sf").fadeToggle({duration: 2000, easing: "easeInOutCirc"}) })
+        $(".be.landing-choice").hover(function(){ $("h2.be").fadeToggle({duration: 2000, easing: "easeInOutCirc"}) })
+        $("h2.sf").hide()
+        $("h2.be").hide()
+      })
+    })(jQuery)
+  </script>
 </head>
 
 <body>
 
 <div id="landing">
-  <div class="vcenter" id="choices">
-    <h1>Katherine &amp; Adriaan are getting married!</h1>
-    <h2><a href="/sf">San Francisco, April 12th 2014</a></h2>
-    <h1>Katherine &amp; Adriaan gaan trouwen!</h1>
-    <h2><a href="/be">Zelem, 3 mei 2014</a></h2>
-    <h3 style="color:red">Under construction...</h3>
+  <div id="choices" class="vcenter">
+
+      <a href="/sf"><div class="sf landing-choice">
+        <div class="sf landing-image"></div>
+        <h2 class="caption">
+          San Francisco, April 12th 2014
+        </h2>
+      </div></a>
+
+      <a href="/be"><div class="be landing-choice">
+        <div class="be landing-image"></div>
+        <h2 class="caption">
+          Zelem, 3 mei 2014
+        </h2>
+      </div></a>
+
+    <h2 class="sf">Katherine &amp; Adriaan are getting married!</h2>
+    <h2 class="be">Katherine &amp; Adriaan gaan trouwen!</h2>
+
   </div>
 </div>
 

@@ -27,7 +27,7 @@ h3 {
 
 p {
   font-size: 1.1em;
-  text-align:justify;
+  text-align: center;
 }
 
 a {
@@ -73,6 +73,84 @@ a:hover{
   left: 0;  right: 0;
 }
 
+
+/* landing */
+#landing {
+  height: 100%;
+  width: 100%;
+  position:relative;
+
+  text-align: center;
+}
+
+#landing h2 {
+/*  display: none;*/
+  color: #2387A0
+}
+
+#landing a {
+  border: none;
+}
+
+#choices {
+  height: 500px;
+}
+
+.landing-choice {
+  opacity: .8;
+  text-align: left;
+  width: 300px;
+  display: inline-block;
+  vertical-align: bottom;
+  background-color: rgba(255, 255, 255, 1);
+  border: 12px solid rgba(255, 255, 255, 1);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+
+  -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.2);
+  -moz-box-shadow: 0 1px 4px rgba(0,0,0,.2);
+  -o-box-shadow: 0 1px 4px rgba(0,0,0,.2);
+  box-shadow: 0 1px 4px rgba(0,0,0,.2);
+  
+  margin: 10px;
+}
+
+.landing-choice:hover {
+  opacity: 1;
+}
+
+.landing-image {
+  width: 300px;
+  height: 300px;
+  background-size: contain;
+}
+
+.sf.landing-image {
+  background: url(/images/sf.jpg) top center no-repeat;
+  width: 300px;
+  height: 300px;
+  background-size: contain;
+}
+
+.be.landing-image {
+  background: url(/images/be.jpg) top center no-repeat;
+  width: 300px;
+  height: 300px;
+  background-size: contain;
+}
+
+.landing-choice .caption {
+  font-weight: 700;
+  font-size: 1.2em;
+  text-align: center;
+  margin-top: 1em;
+  padding-bottom: 0;
+}
+
+
+
 /* intro */
 .dateContainer {
   height: 10em;
@@ -87,25 +165,6 @@ a:hover{
 
 .dateMoving {
   visibility: hidden;
-}
-
-/* landing */
-#landing {
-  height: 100%;
-  width: 100%;
-  position:relative;
-
-  text-align: center;
-  background-color: #000;
-  position: relative;
-}
-
-#landing a {
-  color: #eee;
-}
-
-#choices {
-  height: 26em; /* just winging it */
 }
 
 /* story */
@@ -236,7 +295,7 @@ a:hover{
 }
 
 .caption {
-  font-weight: 600;
+  font-weight: 400;
   font-size: 1.1em;
   text-align: center;
   margin-top: 1em;
@@ -248,6 +307,10 @@ a:hover{
   width: 350px;
   display: inline-block;
   padding-left: 40px;
+}
+
+.right-text p {
+  text-align:justify;
 }
 
 .flex-control-nav {
