@@ -15,6 +15,13 @@
     scrollToHash()
   })
 
+  // http://stackoverflow.com/a/5490021/276895
+  var doit
+  $(window).resize(function(){
+    clearTimeout(doit)
+    doit = setTimeout(scrollToHash, 300)
+  })
+
   // TODO: elastically snap to top of section if close enough
   $(window).scroll(function(e) {
     var scrollTop = window.pageYOffset
@@ -28,8 +35,11 @@
   })
 
   $(window).on('hashchange', function() {
-    if (location.hash != "" && location.hash != undefined)
-      scrollToHash()
+    if (location.hash != "" && location.hash != undefined) {
+      var element = sectionFromId(idFromHash(location.hash))
+      if (currentSectionNeedsChange(element))
+        scrollToSection(element)
+    }
   })
 
   function initSectionsInMenu() {
@@ -56,7 +66,9 @@
 
   function currentSectionNeedsChange(element) {
     return element != undefined && element.attr('id') != undefined &&
-           (currentSection == undefined || element.attr('id') != currentSection.attr('id'))
+           (currentSection == undefined ||
+            element.attr('id') != currentSection.attr('id'))
+
   }
 
   function setCurrentSection(element) {
@@ -77,12 +89,10 @@
   }
 
   function scrollToSection(element) {
-    if (currentSectionNeedsChange(element)) {
-      setCurrentSection(element)
-      $('html, body').animate({
-        scrollTop: element.offset().top
-      }, 2500, "easeOutCubic")
-    }
+    setCurrentSection(element)
+    $('html, body').animate({
+      scrollTop: element.offset().top
+    }, 2000, "easeOutBack")
   }
 
   function scrollToHash() {
