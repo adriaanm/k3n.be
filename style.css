@@ -1,3 +1,10 @@
+/* TODO: 
+ - keep logical elements together: H2 + next P
+ - brighten up background for #us -- add bit of blue
+ - clearer difference in font size between heading and paragraph
+ - don't use justify 
+ - more padding at top of H1 where screen resolution allows */
+
 body, html {
   margin:0;
   padding:0;
@@ -14,7 +21,7 @@ h1 {
 }
 
 h2 {
-	font-size: 3em;	
+	font-size: 2em;	
 	color: #000;
   margin: .2em;
 }
@@ -340,7 +347,7 @@ a:hover{
 }
 
 .right-text p {
-  text-align:justify;
+/*  text-align:justify;*/
 }
 
 .flex-control-nav {
