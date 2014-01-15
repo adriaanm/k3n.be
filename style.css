@@ -1,8 +1,4 @@
 /* TODO: 
- - keep logical elements together: H2 + next P
- - brighten up background for #us -- add bit of blue
- - clearer difference in font size between heading and paragraph
- - don't use justify 
  - more padding at top of H1 where screen resolution allows */
 
 body, html {
@@ -14,23 +10,22 @@ body, html {
 }
 
 h1 {
-  font-size: 4em;	
+  font-size: 3em;
   color: #fff;
   margin: 0;
-  padding-top: .1em;
 }
 
 h2 {
 	font-size: 2em;	
 	color: #000;
-  margin: .2em;
+  margin: 0;
 }
 
 h3 {
 	font-size: 1.5em;	
 	color: #000;
-  margin: .2em;
   font-weight: 400;
+/*  margin: 0;*/
 }
 
 p {
@@ -44,29 +39,40 @@ a {
   border-bottom: 1px solid;
 }
 
-.spacey h1 {
+.loosey h1 {
   padding-top: 1em;
+  margin-bottom: .2em;
+}
+
+.loosey h2 {
+  margin-bottom: .1em;
+}
+
+
+.spacey h1 {
+  padding-top: 2em;
+  margin-bottom: 1em;
 }
 
 .spacey h2 {
-  margin: 1em;
+  margin-top: .2em;
+  margin-bottom: .1em;
 }
 
 .spacey h3 {
-  margin: .5em;
+  padding: 5px;
 }
 
 
 .spaceout h1 {
   padding-top: 3em;
+  margin-bottom: 1em;
 }
 
 .spaceout h2 {
-  margin: 2em;
 }
 
 .spaceout h3 {
-  margin: 1em;
 }
 
 a.flex-prev,
@@ -96,7 +102,7 @@ a:hover{
   position:relative;
 
   text-align: center;
-  overflow: clip;
+  overflow: visible; /* needed for date animation*/
 }
 
 .vcenter {
@@ -202,8 +208,8 @@ a:hover{
 
 /* story */
 #us.section {
-  background-color: #aaa;
-  position: relative;
+  background-color: #93B2D1;
+/*  position: relative;*/
 }
 
 .anniversary {
@@ -222,9 +228,9 @@ a:hover{
   background: url(/images/yosemite.jpg) top center no-repeat;
 }
 
-#us.section .flexslider { 
+/*#us.section .flexslider {
 }
-
+*/
 
 /* family */
 #party.section {
@@ -249,10 +255,8 @@ a:hover{
   background-color: #1BBC9B;
 }
 
-#schedule.section h1,
-#schedule.section h2,
-#schedule.section h3, {
-  margin: 1em;
+#schedule h3 {
+  margin: 0;
 }
 
 /* location */
@@ -261,7 +265,7 @@ a:hover{
 }
 
 #where.section iframe {
-  margin: 1em;
+  margin-top: .5em;
 }
 
 /* hotel */
@@ -301,10 +305,10 @@ a:hover{
   background-color: inherit;
 
   height: 540px;
-  padding-top: 10px;
   border: none;
   box-shadow: none;
   zoom: 1;
+/*  overflow: hidden;*/
 }
 
 .section .left-image {
@@ -335,8 +339,20 @@ a:hover{
   font-weight: 400;
   font-size: 1.1em;
   text-align: center;
-  margin-top: 1em;
+  margin-top: 3px;
   padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+h3.slide-title {
+/*  border: 1px solid rgba(255, 255, 255, .1);*/
+  padding: 2px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+/*  background-color: rgba(255, 255, 255, .05);*/
+  text-align: center;
 }
 
 .section .right-text {
@@ -347,11 +363,11 @@ a:hover{
 }
 
 .right-text p {
-/*  text-align:justify;*/
+  text-align: left;
 }
 
 .flex-control-nav {
-  top: 600px;
+  display: none;
 }
 
 
@@ -400,5 +416,28 @@ a:hover{
   -moz-transition: opacity .5s ease-out;
   -webkit-transition: opacity .5s ease-out;
   -o-transition: opacity .5s ease-out;
+}
 
+
+
+@media screen and (min-height: 700px) {
+  h1 {
+    padding-top: 10px;
+  }
+
+  .flex-control-nav {
+    display: block;
+  }
+
+  .section .flexslider {
+    padding-top: 10px;
+  }
+
+  .caption {
+    margin-top: 10px;
+  }
+
+  #where.section iframe {
+    margin-top: 1em;
+  }
 }
