@@ -94,12 +94,12 @@ function scrollToSecond() {
   if (window.pageYOffset == 0){
     $('html, body').animate({
       scrollTop: $("div #date").offset().top
-    }, 5000, "linear")
+    }, 10000, "linear")
   }
 }
 
 if (isTablet) {
-  setTimeout(scrollToSecond, 1500)
+  setTimeout(scrollToSecond, 3500)
 }
 
 });
