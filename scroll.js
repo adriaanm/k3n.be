@@ -5,21 +5,24 @@
 (function($) {
   // list of divs whose id match the href (minus the #) of a menu item
   var sectionsInMenu = []
-
   var currentSection = undefined
+  var easing = "easeOutBack"
 
   var isTablet = navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|Windows Phone)/)
+  if (isTablet) easing = "linear"
+
+  // http://stackoverflow.com/a/5490021/276895
+  if (!isTablet) {
+    var doit
+    $(window).resize(function(){
+      clearTimeout(doit)
+      doit = setTimeout(scrollToHash, 300)
+    })
+  }
 
   $(window).on('load', function() {
     initSectionsInMenu()
     scrollToHash()
-  })
-
-  // http://stackoverflow.com/a/5490021/276895
-  var doit
-  $(window).resize(function(){
-    clearTimeout(doit)
-    doit = setTimeout(scrollToHash, 300)
   })
 
   // TODO: elastically snap to top of section if close enough
@@ -92,7 +95,7 @@
     setCurrentSection(element)
     $('html, body').animate({
       scrollTop: element.offset().top
-    }, 2000, "easeOutBack")
+    }, 2000, easing)
   }
 
   function scrollToHash() {
