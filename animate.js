@@ -9,30 +9,44 @@
   var height       = -1
   var isTablet     = navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|Windows Phone)/)
 
-  setVisibilities(0)
+  // based on https://gist.github.com/Warry/4254579
+  // Detect request animation frame
+  var scroll = window.requestAnimationFrame ||
+    window.webkitRequestAnimationFrame ||
+    window.mozRequestAnimationFrame ||
+    window.msRequestAnimationFrame ||
+    window.oRequestAnimationFrame ||
+    function(callback) {  // IE Fallback, you can even fallback to onscroll
+      window.setTimeout(callback, 1000 / 60)
+    }
 
   $(document).ready( function() {
     setTimeout(function() {
       computeCaches()
       $(window).on("resize", computeCaches)
-      $(".dateFrom").hover(bounce)
-      setTimeout(bounce, 2000)
+      $(window).on("scroll", function() { $(".menu").css('visibility', (window.pageYOffset >= height) ? 'visible' : 'hidden') })
+
+      // $(".dateFrom").hover(function() {
+      //   $('html, body').animate({
+      //     scrollTop: 200
+      //   }, 300, "linear", function() {
+      //     $('html, body').animate({
+      //       scrollTop: 0
+      //     }, 300, "linear", function(){$(".dateMoving").css('visibility', 'hidden')})
+      //   })
+      // })
+
+      setTimeout(function() {
+        if (isTablet && window.pageYOffset == 0){
+          $('html, body').animate({
+            scrollTop: $("div #date").offset().top
+          }, 5000, "linear")
+        }
+      }, 2000)
+
       loop()
     }, 500)
   })
-
-  function interpolate(pct, from, moving, to) {
-    if (from == undefined) return
-
-    var topInter  = from.top + (to.top - from.top) * pct
-    var leftInter = from.left + (to.left - from.left) * pct
-
-    moving.zIndex(100) // TODO: can this be done once in CSS??
-    moving.offset({
-      top: topInter,
-      left: leftInter
-    }) // actual movement...
-  }
 
   function computeCaches() {
     lastPosition = -1
@@ -91,22 +105,33 @@
     }
   }
 
-  function setVisibilities(pct) {
-    $(".dateFrom").css('visibility',   (pct <= 0)   ? 'visible' : 'hidden')
-    $(".dateMoving").css('visibility', (pct < 1)    ? 'visible' : 'hidden')
-    $(".dateTo").css('visibility',     (pct >= 1)   ? 'visible' : 'hidden')
-    $(".menu").css('visibility',       (pct >= 1.2) ? 'visible' : 'hidden')
-  }
+  function loop() {
+    if (lastPosition == window.pageYOffset || window.pageYOffset >= 2 * height) {
+      // dumdidum
+    } else {
+      lastPosition = window.pageYOffset
 
-  // TODO: can we make this work on mobile?
-  function aniDate() {
-    var top = window.pageYOffset
-    // scale a bit so we arrive before we hit the third slide
-    var pct = (top / height) / .85
+      // TODO: can we make this work on mobile?
+      // scale a bit so we arrive before we hit the third slide
+      var pct = (window.pageYOffset / height) / .85
 
-    setVisibilities(pct)
+      $(".dateFrom").css('visibility',   (pct <= 0)   ? 'visible' : 'hidden')
+      $(".dateMoving").css('visibility', (pct < 1)    ? 'visible' : 'hidden')
+      $(".dateTo").css('visibility',     (pct >= 1)   ? 'visible' : 'hidden')
 
-    if (pct <= 1) {
+      function interpolate(pct, from, moving, to) {
+        if (from == undefined) return
+
+        var topInter  = from.top + (to.top - from.top) * pct
+        var leftInter = from.left + (to.left - from.left) * pct
+
+        moving.zIndex(100) // TODO: can this be done once in CSS??
+        moving.offset({
+          top: topInter,
+          left: leftInter
+        }) // actual movement...
+      }
+
       interpolate(pct, fromOffsets[0], movingElems[0], toOffsets[0])
       interpolate(pct, fromOffsets[1], movingElems[1], toOffsets[1])
       interpolate(pct, fromOffsets[2], movingElems[2], toOffsets[2])
@@ -114,48 +139,8 @@
       interpolate(pct, fromOffsets[4], movingElems[4], toOffsets[4])
       interpolate(pct, fromOffsets[5], movingElems[5], toOffsets[5])
     }
-  }
-
-  // based on https://gist.github.com/Warry/4254579
-  // Detect request animation frame
-  var scroll = window.requestAnimationFrame ||
-    window.webkitRequestAnimationFrame ||
-    window.mozRequestAnimationFrame ||
-    window.msRequestAnimationFrame ||
-    window.oRequestAnimationFrame ||
-    function(callback) {  // IE Fallback, you can even fallback to onscroll
-      window.setTimeout(callback, 1000 / 60)
-    }
-
-  function loop() {
-    if (lastPosition == window.pageYOffset) {
-      // dumdidum
-      console.log("skipped")
-    } else {
-      lastPosition = window.pageYOffset
-
-      aniDate()
-    }
 
     scroll(loop)
-  }
-
-  function bounce() {
-    if (window.pageYOffset == 0){
-      if (isTablet) {
-        $('html, body').animate({
-          scrollTop: $("div #date").offset().top
-        }, 10000, "linear")
-      } else {
-        $('html, body').animate({
-          scrollTop: 200
-        }, 300, "linear", function() {
-          $('html, body').animate({
-            scrollTop: 0
-          }, 300, "linear", function(){$(".dateMoving").css('visibility', 'hidden')})
-        })
-      }
-    }
   }
 
 })(jQuery)
