@@ -4,6 +4,8 @@
   <meta http-equiv="Content-type" content="text/html; charset=utf-8">
   <title>Katherine &amp; Adriaan's Hitching Post</title>
 
+  <!-- curieuzeneus! -->
+
   <link href='http://fonts.googleapis.com/css?family=Josefin+Sans:400,700|Josefin+Slab:400,700|Merriweather:400' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" type="text/css" href="/style.css" />
@@ -12,31 +14,23 @@
   <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>	
 
   <!-- Place somewhere in the <head> of your document -->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/flexslider/2.2/flexslider.css" type="text/css">
-  <script src="//cdn.jsdelivr.net/flexslider/2.2/jquery.flexslider.js"></script>
+  <link rel="stylesheet" href="/vendors/flexslider.css" type="text/css">
+  <script src="/vendors/jquery.flexslider-min.js"></script>
 
   <script type="text/javascript" charset="utf-8">
     $(window).load(function() {
-      $('#us-slider').flexslider({
+      var isTablet = navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|Windows Phone)/)
+      var options = {
         animation: "slide",
         slideshowSpeed: 20000,
         itemWidth: 500,
         maxItems: 1,
-        slideshow: true,
+        slideshow: !isTablet,
         keyboard: true,
         multipleKeyboard: true
-      });
-
-      $('#party-slider').flexslider({
-        animation: "slide",
-        slideshowSpeed: 20000,
-        itemWidth: 500,
-        randomize: true,
-        maxItems: 1,
-        slideshow: true,
-        keyboard: true,
-        multipleKeyboard: true
-      });
+      }
+      $('#us-slider').flexslider(options);
+      $('#party-slider').flexslider(options);
 
     });
   </script>
