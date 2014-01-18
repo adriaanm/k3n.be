@@ -47,7 +47,7 @@
 
   function initSectionsInMenu() {
     // get divs that have a menu item, so we can activate it on scrolling there (http://stackoverflow.com/a/9980042)
-    sectionsInMenu = $('.menu a').map(function() {
+    sectionsInMenu = $('.menu a, a.menu').map(function() {
       var section = sectionFromId(idFromHash(this.hash))
 
       $(this).on("click", function( event ){

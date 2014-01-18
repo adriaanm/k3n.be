@@ -15,6 +15,7 @@
 
   <!-- Place somewhere in the <head> of your document -->
   <link rel="stylesheet" href="/vendors/flexslider.css" type="text/css">
+  <link rel="stylesheet" href="/vendors/icon.css" type="text/css">
   <script src="/vendors/jquery.flexslider-min.js"></script>
 
   <script type="text/javascript" charset="utf-8">
@@ -31,7 +32,7 @@
       }
       $('#us-slider').flexslider(options);
       $('#party-slider').flexslider(options);
-
+      $(".control-btn").addClass("load");
     });
   </script>
 
@@ -66,7 +67,8 @@
     <span id="two">2</span><span id="zero">0</span><span id="one">1</span><span id="four">4</span>
     <span id="year">2014</span>
   </span>
-  <!-- <div style="position:absolute; bottom:0px">(scroll down...)</div> -->
+
+  <a class="control-btn fui-arrow-down menu" href="#date"> </a>
 </div>
 
 <div class="section date" id="date">

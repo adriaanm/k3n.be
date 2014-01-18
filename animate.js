@@ -36,13 +36,13 @@
       //   })
       // })
 
-      setTimeout(function() {
-        if (isTablet && window.pageYOffset == 0){
-          $('html, body').animate({
-            scrollTop: $("div #date").offset().top
-          }, 5000, "linear")
-        }
-      }, 2000)
+      // setTimeout(function() {
+      //   if (isTablet && window.pageYOffset == 0){
+      //     $('html, body').animate({
+      //       scrollTop: $("div #date").offset().top
+      //     }, 5000, "linear")
+      //   }
+      // }, 2000)
 
       loop()
     }, 500)
@@ -115,6 +115,7 @@
       // scale a bit so we arrive before we hit the third slide
       var pct = (window.pageYOffset / height) / .85
 
+      $(".control-btn.fui-arrow-down").css('visibility',   (pct == 0)   ? 'visible' : 'hidden')
       $(".dateFrom").css('visibility',   (pct <= 0)   ? 'visible' : 'hidden')
       $(".dateMoving").css('visibility', (pct < 1)    ? 'visible' : 'hidden')
       $(".dateTo").css('visibility',     (pct >= 1)   ? 'visible' : 'hidden')

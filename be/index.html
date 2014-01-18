@@ -15,6 +15,7 @@
 
   <!-- Place somewhere in the <head> of your document -->
   <link rel="stylesheet" href="/vendors/flexslider.css" type="text/css">
+  <link rel="stylesheet" href="/vendors/icon.css" type="text/css">
   <script src="/vendors/jquery.flexslider-min.js"></script>
 
   <script type="text/javascript" charset="utf-8">
@@ -31,7 +32,7 @@
       }
       $('#us-slider').flexslider(options);
       $('#party-slider').flexslider(options);
-
+      $(".control-btn").addClass("load");
     });
   </script>
 
@@ -56,7 +57,7 @@
 
 <div id="superContainer">
 
-<div class="section">
+<div class="section date">
   <div class="dateContainer vcenter">
     <span class="dateFrom">
       <span id="zero">0</span><span id="one">1</span><span id="two">2</span><span id="three">3</span><span id="four">4</span><span id="five">5</span>
@@ -65,6 +66,8 @@
   <span class="dateMoving">
      <span id="zero">0</span><span id="one">1</span><span id="two">2</span><span id="three">3</span><span id="four">4</span><span id="five">5</span>
   </span>
+
+  <a class="control-btn fui-arrow-down menu" href="#date"> </a>
 </div>
 
 <div class="section" id="date">
