@@ -320,17 +320,22 @@
   <script type="text/javascript" charset="utf-8">
   $(window).load(function() {
     var isTablet = navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|Windows Phone)/)
-    if (isTablet) // iframes do not work...
-      $("#rsvp.section iframe").replaceWith("<h1><a href=\"https://docs.google.com/forms/d/1N5cV5hlon7Wo8vcyNo19iLrILMKJ41s4p5S--do_LHo/viewform\">RSVP!</a></h1><br>(opens in a new window/tab)")
-    else
-      $("#rsvp.section iframe").css({display: "block"})
+    if (!isTablet) // iframes do not work on my ipad...
+      $("#lnk").css({display: "none"})
+      $("#ifrm").css({display: "block"})
     })
   </script>
-  <iframe style="display: none" class="fillsection" src="https://docs.google.com/forms/d/1N5cV5hlon7Wo8vcyNo19iLrILMKJ41s4p5S--do_LHo/viewform?embedded=true">
-    Having trouble seeing or using the RSVP form?
-    Please try <a href="https://docs.google.com/forms/d/1N5cV5hlon7Wo8vcyNo19iLrILMKJ41s4p5S--do_LHo/viewform">opening it in a new window</a>
-    or RSVP via <a href="mailto:hi@k3n.be">email</a>!
-  </iframe>
+
+  <div id="lnk" style="width: 100%; height: 100%">
+    <h1><a href="https://docs.google.com/forms/d/1N5cV5hlon7Wo8vcyNo19iLrILMKJ41s4p5S--do_LHo/viewform">RSVP!</a></h1><br>(opens in a new window/tab)
+  </div>
+  <div id="ifrm" style="display: none; width: 100%; height: 100%">
+    <iframe class="fillsection" src="https://docs.google.com/forms/d/1N5cV5hlon7Wo8vcyNo19iLrILMKJ41s4p5S--do_LHo/viewform?embedded=true">
+      Having trouble seeing or using the RSVP form?
+      Please try <a href="https://docs.google.com/forms/d/1N5cV5hlon7Wo8vcyNo19iLrILMKJ41s4p5S--do_LHo/viewform">opening it in a new window</a>
+      or RSVP via <a href="mailto:hi@k3n.be">email</a>!
+    </iframe>
+  </div>
 </div>
 
 <div class="section spaceout" id="share">
