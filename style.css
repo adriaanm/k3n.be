@@ -60,7 +60,7 @@ a {
 }
 
 .spacey h3 {
-  padding: 5px;
+  padding-top: 5px;
 }
 
 
@@ -346,7 +346,7 @@ a:hover{
 
 h3.slide-title {
 /*  border: 1px solid rgba(255, 255, 255, .1);*/
-  padding: 2px;
+  padding-top: 2px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -o-border-radius: 4px;
@@ -356,6 +356,7 @@ h3.slide-title {
 }
 
 .section .right-text {
+  vertical-align: top;
   text-align: left;
   width: 350px;
   display: inline-block;
@@ -363,6 +364,7 @@ h3.slide-title {
 }
 
 .right-text p {
+  vertical-align: top;
   text-align: left;
 }
 
