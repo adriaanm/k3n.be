@@ -320,9 +320,11 @@
     var isTablet = navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|Windows Phone)/)
     if (isTablet) // iframes do not work...
       $("#rsvp.section iframe").replaceWith("<h1><a href=\"https://docs.google.com/forms/d/1N5cV5hlon7Wo8vcyNo19iLrILMKJ41s4p5S--do_LHo/viewform\">RSVP!</a></h1><br>(opens in a new window/tab)")
+    else
+      $("#rsvp.section iframe").css({display: "block"})
     })
   </script>
-  <iframe class="fillsection" src="https://docs.google.com/forms/d/1N5cV5hlon7Wo8vcyNo19iLrILMKJ41s4p5S--do_LHo/viewform?embedded=true">
+  <iframe style="display: none" class="fillsection" src="https://docs.google.com/forms/d/1N5cV5hlon7Wo8vcyNo19iLrILMKJ41s4p5S--do_LHo/viewform?embedded=true">
     Having trouble seeing or using the RSVP form?
     Please try <a href="https://docs.google.com/forms/d/1N5cV5hlon7Wo8vcyNo19iLrILMKJ41s4p5S--do_LHo/viewform">opening it in a new window</a>
     or RSVP via <a href="mailto:hi@k3n.be">email</a>!
