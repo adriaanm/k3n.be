@@ -39,6 +39,18 @@ a {
   border-bottom: 1px solid;
 }
 
+iframe.fillsection {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+iframe.fillsection80 {
+  width: 80%;
+  height: 60%;
+  border: 0;
+}
+
 .loosey h1 {
   padding-top: 1em;
   margin-bottom: .2em;
@@ -274,7 +286,13 @@ a:hover{
 
 /* RSVP */
 #rsvp.section {
+  background-color: hsl(204, 59%, 41%);
   min-height: 1140px;
+}
+
+#rsvp.section h1 {
+  padding-top: 5em;
+  font-family: 'Merriweather', serif;  
 }
 
 /* share */

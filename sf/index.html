@@ -295,7 +295,9 @@
   <h3><a href="https://maps.google.com/maps?q=Potrero+Hill+Neighborhood+House,+953+De+Haro+St+San+Francisco,+CA+94107">953 De Haro St, San Francisco, CA 94107</a></h2>
 
   <!- https://mapsengine.google.com/map/u/0/edit?mid=zpym0cAvjSSo.kkwcnpXSTtsw ->
-  <iframe src="https://mapsengine.google.com/map/embed?mid=zZ0O1H1nj5vA.krAMja3c9q9M" width="80%" height="60%"></iframe>
+  <iframe class="fillsection80" src="https://mapsengine.google.com/map/embed?mid=zZ0O1H1nj5vA.krAMja3c9q9M">
+
+  </iframe>
 
 </div>
 
@@ -313,8 +315,17 @@
 </div>
 
 <div class="section" id="rsvp">
-  <iframe src="https://docs.google.com/forms/d/1N5cV5hlon7Wo8vcyNo19iLrILMKJ41s4p5S--do_LHo/viewform?embedded=true" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0">
-    Having trouble seeing or using the RSVP form? Please <a href="mailto:hi@k3n.be">let us know</a>!
+  <script type="text/javascript" charset="utf-8">
+  $(window).load(function() {
+    var isTablet = navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|Windows Phone)/)
+    if (isTablet) // iframes do not work...
+      $("#rsvp.section iframe").replaceWith("<h1><a href=\"https://docs.google.com/forms/d/1N5cV5hlon7Wo8vcyNo19iLrILMKJ41s4p5S--do_LHo/viewform\">RSVP!</a></h1><br>(opens in a new window/tab)")
+    })
+  </script>
+  <iframe class="fillsection" src="https://docs.google.com/forms/d/1N5cV5hlon7Wo8vcyNo19iLrILMKJ41s4p5S--do_LHo/viewform?embedded=true">
+    Having trouble seeing or using the RSVP form?
+    Please try <a href="https://docs.google.com/forms/d/1N5cV5hlon7Wo8vcyNo19iLrILMKJ41s4p5S--do_LHo/viewform">opening it in a new window</a>
+    or RSVP via <a href="mailto:hi@k3n.be">email</a>!
   </iframe>
 </div>
 
@@ -333,7 +344,8 @@
   <h3>We do like gifts, but have all the <a href="https://www.youtube.com/watch?v=4x_QkGPCL18" style="color:black;border-bottom:0;">stuff</a> we need.</h3>
 
   <p style="width: 400px; margin: auto; margin-top: 1em">
-    For our honeymoon, we're planning a several weeks' long trip at the end of the summer.
+    First, we're moving to Lausanne for three months in May.
+    After that, we're taking several weeks at the end of summer for our honeymoon!
     We haven’t decided where all to go (so many places, so little time&hellip;),
     but Madagascar, Fiji, Taiwan, New Zealand, and all of Southeast Asia are on our short list :-)
   </p>
