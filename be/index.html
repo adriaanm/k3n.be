@@ -293,9 +293,38 @@
 </div>
 
 <div class="section spaceout" id="where">
-  <h1>locatie</h1>
-  <h2><a href="http://www.sintjansbergklooster.be">Sint-Jansbergklooster</a></h2>
-  <h3><a href="https://www.google.com/maps?q=Sint-Jansbergstraat+9%2C+Zelem%2C+Belgi%C3%AB">Sint-Jansbergstraat 9, Zelem, België</a></h2>
+  <div id="locations">
+    <div class="address" id="klooster">
+      <p><a href="http://www.sintjansbergklooster.be">Sint-Jansbergklooster</a><p>
+      <p><a href="https://www.google.com/maps?q=Sint-Jansbergstraat+9%2C+Zelem%2C+Belgi%C3%AB">Sint-Jansbergstraat 9, Zelem</a></p>
+      <!-- <div class="address" id="hotel">
+      <p>
+      </p>
+      </div> -->
+    </div>
+  </div>
+  <div id="map" style="height: 100%"></div>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
+  <script type="text/javascript" charset="utf-8">
+    var center = new google.maps.LatLng(50.9700024,5.0919427);
+    var mapOptions = {
+	center: center,
+	zoom: 15,
+	mapTypeId: google.maps.MapTypeId.ROADMAP,
+	scaleControl: false,
+	scrollwheel: false
+    }
+
+    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+    var venuePosition = new google.maps.LatLng(50.9696054,5.0924427);
+    var markerVenue = new google.maps.Marker({
+	position: venuePosition,
+	map: map,
+	title: 'Sint-Jansbergklooster'
+    });
+
+  </script>
 
 <!-- http://www.slimweg.be/toplocaties/sint-jansbergklooster.htm -->
 

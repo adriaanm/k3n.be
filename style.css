@@ -469,6 +469,15 @@ h3.slide-title {
 		z-index: 99;
 }
 
+
+#map{width:100%;height:100%}
+#locations{position:absolute;left:80px;top:80px;}
+#locations .address{width:300px;background:hsl(204, 59%, 41%);position:relative;padding:10px;color:#fff;z-index:900;margin-bottom:20px;}
+#locations a {color:#fff;}
+#locations .address p{margin:5px 0 10px 0}
+/*#locations .address:before{display:block;color:#103a51;font-weight:700;text-transform:uppercase;font-size:14px}*/
+/*#locations #klooster:before{content:"Venue"}*/
+
 @media screen and (min-height: 700px) {
   h1 {
     padding-top: 10px;
