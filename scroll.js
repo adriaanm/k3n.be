@@ -49,13 +49,14 @@
     // get divs that have a menu item, so we can activate it on scrolling there (http://stackoverflow.com/a/9980042)
     sectionsInMenu = $('.menu a, a.menu').map(function() {
       var section = sectionFromId(idFromHash(this.hash))
+      if (section.offset() != undefined) {
+        $(this).on("click", function( event ){
+          event.preventDefault()
+          scrollToSection(section)
+        });
 
-      $(this).on("click", function( event ){
-        event.preventDefault()
-        scrollToSection(section)
-      });
-
-      return section
+        return section
+      }
     })
   }
 
