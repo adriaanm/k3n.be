@@ -92,10 +92,12 @@
   }
 
   function scrollToSection(element) {
-    setCurrentSection(element)
-    $('html, body').animate({
-      scrollTop: element.offset().top
-    }, 2000, easing)
+    if (element.offset() != undefined) {
+      setCurrentSection(element)
+      $('html, body').animate({
+        scrollTop: element.offset().top
+      }, 2000, easing)
+    }
   }
 
   function scrollToHash() {

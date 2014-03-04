@@ -20,11 +20,17 @@
       window.setTimeout(callback, 1000 / 60)
     }
 
+  function hideMenuOnFirstSlide() { 
+    $(".menu").css('visibility', (window.pageYOffset >= height) ? 'visible' : 'hidden') 
+  }
+
+  $(window).on("load", hideMenuOnFirstSlide)
+  $(window).on("scroll", hideMenuOnFirstSlide)
+
   $(document).ready( function() {
     setTimeout(function() {
       computeCaches()
       $(window).on("resize", computeCaches)
-      $(window).on("scroll", function() { $(".menu").css('visibility', (window.pageYOffset >= height) ? 'visible' : 'hidden') })
 
       // $(".dateFrom").hover(function() {
       //   $('html, body').animate({

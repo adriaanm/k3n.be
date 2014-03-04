@@ -399,7 +399,7 @@ h3.slide-title {
 	right: 20px;
   bottom: 20px;
 	z-index: 70;
-/*  visibility: hidden;*/
+  visibility: hidden;
 	margin:  0px;
   padding: 0px;
 }
