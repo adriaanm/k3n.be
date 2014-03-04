@@ -391,12 +391,12 @@ h3.slide-title {
 }
 
 
+
 /* menu */
-.menu {
+nav {
   font-family: 'Merriweather', serif;
 
 	position:fixed;
-	right: 20px;
   bottom: 20px;
 	z-index: 70;
   visibility: hidden;
@@ -404,7 +404,7 @@ h3.slide-title {
   padding: 0px;
 }
 
-.menu a{
+nav a, nav .item {
 	display: inline-block;
   padding: 4px 4px;
   margin: 0;
@@ -423,11 +423,11 @@ h3.slide-title {
   border-bottom: 0;
 }
 
-.menu a.active{
+nav a.active, nav .item.active {
   opacity: 1;
 }
 
-.menu a:hover{
+nav a:hover, nav .item.active:hover {
 	text-decoration: none;
   opacity: .8;
   border-bottom: none;
@@ -436,6 +436,38 @@ h3.slide-title {
   -moz-transition: opacity .5s ease-out;
   -webkit-transition: opacity .5s ease-out;
   -o-transition: opacity .5s ease-out;
+}
+
+.lang {
+        left: 20px;
+}
+
+nav.lang div.item.active {
+  display: inline-block;
+  background: #858585;
+}
+
+nav.lang div.item {
+  display: none;
+  color: white;
+  cursor: pointer;
+}
+
+.english {display:none;}
+.english.active {display:inherit;}
+
+.dutch {display:none;}
+.dutch.active {display:inherit;}
+
+
+/* menu */
+.menu {
+        right: 20px;
+}
+
+.menu a {
+/*  display: inline-block;*/
+  background: white;
 }
 
 
@@ -468,7 +500,6 @@ h3.slide-title {
 		position: absolute;
 		z-index: 99;
 }
-
 
 #map{width:100%;height:100%}
 #locations{position:absolute;left:80px;top:80px;}

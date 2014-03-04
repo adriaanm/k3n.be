@@ -38,6 +38,11 @@
         $("#lnk").css({display: "none"})
         $("#ifrm").css({display: "block"})
       }
+
+      $(".dutch").addClass('active')
+      $("#showDutch").click(function(){   $(".dutch").addClass('active')    ; $(".english").removeClass('active') })
+      $("#showEnglish").click(function(){ $(".dutch").removeClass('active') ; $(".english").addClass('active') })
+
     });
   </script>
 
@@ -47,6 +52,11 @@
 </head>
 
 <body>
+
+<nav class="lang">
+  <div class="item english" id="showDutch">liever nederlands?</div>
+  <div class="item dutch"   id="showEnglish">prefer english?</div>
+</nav>
 
 <nav class="menu">
  <a href="#us">k&amp;a-3-n</a>
