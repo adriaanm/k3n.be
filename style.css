@@ -454,31 +454,11 @@ nav.lang div.item {
   cursor: pointer;
 }
 
-.english {display:none;
-  transition: opacity .5s ease-out;
-  -moz-transition: opacity .5s ease-out;
-  -webkit-transition: opacity .5s ease-out;
-  -o-transition: opacity .5s ease-out;
-}
-.english.active {display:inherit;
-  transition: opacity .5s ease-out;
-  -moz-transition: opacity .5s ease-out;
-  -webkit-transition: opacity .5s ease-out;
-  -o-transition: opacity .5s ease-out;
-}
+.english {display:none;}
+.english.active {display:inherit;}
 
-.dutch {display:none;
-  transition: opacity .5s ease-out;
-  -moz-transition: opacity .5s ease-out;
-  -webkit-transition: opacity .5s ease-out;
-  -o-transition: opacity .5s ease-out;
-}
-.dutch.active {display:inherit;
-  transition: opacity .5s ease-out;
-  -moz-transition: opacity .5s ease-out;
-  -webkit-transition: opacity .5s ease-out;
-  -o-transition: opacity .5s ease-out;
-}
+.dutch {display:none;}
+.dutch.active {display:inherit;}
 
 
 /* menu */
