@@ -314,27 +314,6 @@
     </div>
   </div>
   <div id="map" style="height: 100%"></div>
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
-  <script type="text/javascript" charset="utf-8">
-    var center = new google.maps.LatLng(50.9700024,5.0919427);
-    var mapOptions = {
-	center: center,
-	zoom: 15,
-	mapTypeId: google.maps.MapTypeId.ROADMAP,
-	scaleControl: false,
-	scrollwheel: false
-    }
-
-    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-
-    var venuePosition = new google.maps.LatLng(50.9696054,5.0924427);
-    var markerVenue = new google.maps.Marker({
-	position: venuePosition,
-	map: map,
-	title: 'Sint-Jansbergklooster'
-    });
-
-  </script>
 
 <!-- http://www.slimweg.be/toplocaties/sint-jansbergklooster.htm -->
 
@@ -392,6 +371,28 @@
 </div>
 
 </div>
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
+<script type="text/javascript" charset="utf-8">
+  var center = new google.maps.LatLng(50.9700024,5.0919427);
+  var mapOptions = {
+center: center,
+zoom: 15,
+mapTypeId: google.maps.MapTypeId.ROADMAP,
+scaleControl: false,
+scrollwheel: false
+  }
+
+  var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+  var venuePosition = new google.maps.LatLng(50.9696054,5.0924427);
+  var markerVenue = new google.maps.Marker({
+position: venuePosition,
+map: map,
+title: 'Sint-Jansbergklooster'
+  });
+
+</script>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
